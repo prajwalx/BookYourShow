@@ -7,7 +7,6 @@ angular.module('yoManprojectfolderApp.admin')
       controller: 'AdminController',
       controllerAs: 'admin',
       authenticate: 'admin'
-    
 
     });
   });

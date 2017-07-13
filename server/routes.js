@@ -9,6 +9,7 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/theatresendpoints', require('./api/theatresendpoint'));
   app.use('/api/homeEndPoints', require('./api/homeEndPoint'));
   app.use('/api/moviesendpoints', require('./api/moviesendpoint'));
   app.use('/api/things', require('./api/thing'));

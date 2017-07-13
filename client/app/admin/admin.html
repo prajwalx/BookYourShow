@@ -34,9 +34,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
 =================================================================
 
 -->
- <div id="LoadAdminPanel">
 
-</div>
 <!-- - -></br></br> -->
 </br></br>
 
@@ -80,11 +78,11 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
     <button class="btn btn-danger"  style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-home"></span>DASHBOARD </button>
     </a>
   </br>
-    <a class="btn btn-danger active"href="#">
+    <a class="btn btn-danger active"href="/theatre">
     <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-film"></span>THEATRES </button>
     </a>
   </br>
-    <a class="btn btn-danger active"href="">
+    <a class="btn btn-danger active"href="/movies">
     <button class="btn btn-danger" onclick="Load('M')"style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-play"></span>MOVIES </button>
     </a>
     </br>
@@ -101,7 +99,12 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
 
 <script >
 
+$(document).ready(function () {
+  setTimeout(function() {
+         openMenu();
+    }, 100);
 
+});
 function openMenu()
 {
 

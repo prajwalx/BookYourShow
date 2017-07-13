@@ -19,6 +19,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/theatresendpoint/theatresendpoint.socket').register(socket);
   require('../api/homeEndPoint/homeEndPoint.socket').register(socket);
   require('../api/moviesendpoint/moviesendpoint.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
