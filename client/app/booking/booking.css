@@ -1,0 +1,28 @@
+.seat{
+  width: 20px;
+  height:20px;
+  border-radius: 20%;
+  border:solid 2.3px mediumseagreen;
+  text-align: center;
+  color: grey;
+
+}
+.seat:hover{
+  background-color: mediumseagreen;
+  color:white;
+}
+.seat::selection{
+  background-color: mediumseagreen;
+  color:white;
+}
+.seatStyle{
+  background-color: mediumseagreen;
+  color:white ;
+}
+#SeatLayout td{
+  padding-left: 11px;
+
+}
+#SeatHeader th{
+  padding-left: 15px;
+}

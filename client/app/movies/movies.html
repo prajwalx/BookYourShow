@@ -1,0 +1,289 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" ng-model="moviesCtrl.MovieName" placeholder="Movie Name" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="moviesCtrl.Year" placeholder="Year" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="moviesCtrl.Genre" placeholder="Genre" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" ng-click="moviesCtrl.addMovie()">Submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+        <tr>
+          <th>Movie Name</th>
+          <th>Year</th>
+          <th>Genre</th>
+        </tr>
+        <tr ng-repeat="x in moviesCtrl.MovieData">
+          <td>{{x.MovieName}}</td>
+          <td>{{x.Year}}</td>
+          <td>{{x.Genre}}</td>
+          <td><button ng-click="moviesCtrl.removeMovie(x)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid"name="con"
+style="background-color:white;position:relative;padding:0;overflow-x:hidden;margin-left:0px;margin-top:-20px;transition:0.4s;">
+
+<div class="menbod"onclick="openMenu()"style="float:left;margin-left:15px;">
+<div class="MenuIcon">
+
+</div>
+<div class="MenuIcon">
+
+</div><div class="MenuIcon">
+
+</div>
+</div>
+
+<h3 class="dashboard"style="float:left;margin-top:8px;margin-left:5%;">DashBoard</h3>
+<!-- <h4 style="float:right;margin-top:10px;margin-right:5%;">LogOut</h4> -->
+<!--
+
+=================================================================
+
+-->
+<div class="ngng" >
+
+
+<div class="container-fluid" style="background-color:whitesmoke;padding-top:30px;padding-left:30px;height:900px;margin-left:0">
+<h1 style="font-family:didot;color:indigo; margin-left:20%;;">Movies</h1>
+  <div class="row">
+    <div class="row-md-6"style="max-width:50%;margin-left:20%;">
+
+      <div class="form-group">
+        <label for="MovieName"><b>Movie Name:</b></label>
+        <input type="text" id="MovieName"placeholder="Movie Name" ng-model="moviesCtrl.MovieName"class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label for="MovieYear"><b>MovieYear:</b></label>
+        <input type="text" id="MovieYear"placeholder="Movie Year (Optional)" ng-model="moviesCtrl.MovieYear"class="form-control"/>
+      </div>
+
+       <div class="form-group">
+        <button class="btn btn-success" ng-click="moviesCtrl.SearchMovie()">Search</button>
+
+
+      </div>
+      </div>
+
+      <div ng-class="moviesCtrl.class"style="margin-left:40%;font-size:36px;color:black;">
+
+      </div>
+
+    </div>
+  <!-- </div> -->
+
+    <!-- <div class="row"style=""
+    style="background-color:white;border:solid 1px whitesmoke;"> -->
+      <div ng-show="moviesCtrl.OneRecord"class="container-fluid"style="background-color:whitesmoke;overflow-x:scroll;">
+        <h2>{{moviesCtrl.MovieDetails.title}}</h2>
+        <table id="local2"class="table table-responsive table-bordered "style="border:solid 2px black;background-color:white;">
+          <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>Actors</th>
+            <th>Duration</th>
+            <th>Genre</th>
+            <th>Director</th>
+          </tr>
+          <tr>
+            <td style="word-wrap:break-word;"><img src="{{moviesCtrl.MovieDetails.cov}}" style="max-width:200px"></td>
+            <td style="word-wrap:break-word;">{{moviesCtrl.MovieDetails.title}}
+            </br></br></br>
+            <div class="btn-group-vertical">
+              <button class="btn btn-success" ng-click="moviesCtrl.addMovie()">Add Movie <span class="glyphicon glyphicon-plus"></span></button>
+
+
+            </br>
+          </br>
+          <a target="_blank"class="btn btn-info"ng-href="http://www.imdb.com/title/tt{{moviesCtrl.MovieDetails.id}}/">
+          <button class="btn btn-info" style="padding:0;">View <span class="glyphicon glyphicon-eye-open"></span></button>
+          </a>
+            </div>
+          </td>
+            <td >{{moviesCtrl.MovieDetails.cast}}</td><!--style="word-wrap:break-word;" -->
+            <td >{{moviesCtrl.MovieDetails.dur}}</td>
+            <td >{{moviesCtrl.MovieDetails.gen}}</td>
+            <td >{{moviesCtrl.MovieDetails.director}}</td>
+
+
+
+
+          </tr>
+
+        </table>
+
+      <!-- </div> -->
+    </div>
+
+    <!--
+    Getting Data From Local Mongo DB
+  -->
+</br>
+
+  <div ng-show="moviesCtrl.LocalDB"class="container-fluid"style="margin-top:100px;background-color:whitesmoke;overflow-x:scroll;">
+     <h2>My Movies</h2>
+    <table id="local"class="table table-responsive  table-striped table-bordered">
+      <tr >
+        <th>Poster</th>
+        <th>Title</th>
+        <th>Actors</th>
+        <th>Duration</th>
+        <th>Genre</th>
+        <th>Director</th>
+      </tr>
+      <tr ng-repeat="x in moviesCtrl.MovieData">
+        <td ><img src="{{x.Poster}}" style="max-width:200px"></td>
+        <td >{{x.Title}}
+        </br></br>
+        <div class="btn-group-vertical">
+          <a target="_blank"class="btn btn-info"ng-href="http://www.imdb.com/title/tt{{x.Id}}/">
+          <button class="btn btn-info" style="padding:0;">View <span class="glyphicon glyphicon-eye-open"></span></button>
+        </a>
+
+
+        </br>
+      </br><button class="btn btn-danger" ng-click="moviesCtrl.removeMovie(x)">Remove Movie <span class="glyphicon glyphicon-trash"></span></button>
+        </div>
+        </td>
+        <td >{{x.Actors}}</td><!--style="word-wrap:break-word;" -->
+        <td >{{x.Duration}}</td>
+        <td >{{x.Genre}}</td>
+        <td >{{x.Directors}}</td>
+
+
+
+
+      </tr>
+
+    </table>
+
+  <!-- </div> -->
+  </div>
+
+  </div>
+<!-- </div> -->
+</div>
+
+<!-- - -></br></br> -->
+</br></br>
+
+</div>
+
+<div id="topmo"class="topMovies"style="border:3px solid white;overflow-y:scroll;top:0;transition:0.4s;">
+
+  <center>
+  <!-- <b><h4 style="color:white;margin-top:15px;font-family:sans-serif;">BOOK MY MOVIE</h4></b> -->
+
+
+</br>
+  <div class="closeMen"onclick="openMenu()"style="margin-top:4px;margin-left:0;">
+    <div class="MenuIcon"style="transform:rotate(-45deg) translate(-9px,4px);background-color:white;">
+
+    </div>
+    <div class="MenuIcon"style="transform:rotate(45deg);background-color:white;opacity:0;">
+
+    </div>
+    <div class="MenuIcon"style="transform:rotate(45deg) translate(-8px,-4px);background-color:white;">
+
+    </div>
+  </div>
+  <!-- <div class="horiLine"style="width:100%;border:solid 0.6px white !important;border-color:white;">
+  </div> -->
+  </center>
+
+
+ </br>
+
+  <!-- <div class="list-group"id="lgtr" onclick="openMenu()"style="transition: 1.8s;width:0%;">
+    <a href="#"  class="list-group-item active"><span class="glyphicon glyphicon-home"></span> DASHBOARD</a></br>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-film"></span>  THEATRES</a></br>
+    <a href="#/movies" class="list-group-item"><span class="glyphicon glyphicon-play"></span>  MOVIES</a></br>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-th"></span> MANAGE SHOWS</a></br>
+    <a href="#"class="list-group-item">ADD SHOW TIMINGS</a></br>
+
+  </div> -->
+  <div class="btn-group-vertical"style="width:100%;"onclick="openMenu()">
+    <a class="btn btn-danger active " style=""href="#">
+    <button class="btn btn-danger"  style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-home"></span>DASHBOARD </button>
+    </a>
+  </br>
+    <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-film"></span>THEATRES </button>
+    </a>
+  </br>
+    <a class="btn btn-danger active"href="/movies">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-play"></span>MOVIES </button>
+    </a>
+    </br>
+    <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
+    </a>
+    </br>
+    <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;">ADD SHOW TIMINGS </button>
+    </a>
+  </div>
+
+</div>
+
+<script >
+
+
+function openMenu()
+{
+
+
+var con=document.getElementsByName('con');
+var menu=document.getElementsByClassName('topMovies');
+// var list=document.getElementById('lgtr');
+//var mb=document.getElementsByClassName('menbod');
+//var tb=document.getElementsByClassName('TopBarr');
+//var db=document.getElementsByClassName('dashboard');
+//tb[0].style.marginLeft=tb[0].style.marginLeft==='0%'?'20%':'0%';
+//tb[0].style.width=tb[0].style.width==='100%'?'80%':'100%';
+//db[0].style.marginLeft=db[0].style.marginLeft==='70px'?'15px':'70px';
+//con[0].style.marginLeft=con[0].style.marginLeft==='280px'?'0px':'280px';
+
+//menu[0].style.width=menu[0].style.width==='250px'?'0':'250px';
+//db[0].style.zIndex=db[0].style.zIndex==='-15'?'15':'-15';
+//mb[0].style.opacity=mb[0].style.opacity==='0'?'1':'0';
+con[0].style.marginLeft=con[0].style.marginLeft==='280px'?'0':'280px';
+
+ menu[0].style.width=menu[0].style.width==='280px'?'0px':'280px';
+ // list.style.width=list.style.width==='0%'?'100%':'0%';
+//  menu[0].style.height=menu[0].style.height==='100%'?'0%':'100%';
+// con[0].style.marginLeft=con[0].style.marginLeft==='20%'?'0':'20%';
+
+
+/*if(parseInt(window.innerWidth)<600){
+  db[0].style.opacity=db[0].style.opacity==='1'?'0':'1';
+}
+else {
+  db[0].style.opacity='1';
+}*/
+
+
+}
+
+
+
+
+
+
+
+</script>

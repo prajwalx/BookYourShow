@@ -1,0 +1,342 @@
+
+<script>
+$(document).ready(function () {
+var menu = $('#fixbar');
+var origOffsetY = menu.offset().top;
+function scroll() {
+    if ($(window).scrollTop() >= origOffsetY) {
+        $('#fixbar').addClass('navbar-fixed-top');
+         document.getElementById('fixbar').style.top="-2px";
+    } else {
+        $('#fixbar').removeClass('navbar-fixed-top');
+         document.getElementById('fixbar').style.top="51px";
+    }
+   }
+  document.onscroll = scroll;
+});
+</script>
+
+
+<div class="container-fluid "id="fixbar">
+  <form class="navbar-form" >
+  <div class="input-group mydesign">
+    <input type="text" class="form-control"id="SearchBarHomePage" placeholder="Book Tickets for Movies">
+    <div class="input-group-btn mydesign">
+      <button class="btn btn-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </div>
+  </div>
+  </form>
+
+</div>
+
+
+<!--Slide Show of Movies from bookMyShow- - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - - -->
+<div class="container-fluid">
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel"style="top:-20px;">
+    <!-- Indicators- - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - -  -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides- - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - -  -->
+    <div class="carousel-inner">
+      <div class="item active" >
+        <img src="transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59" >
+      </div>
+
+      <div class="item">
+        <img src="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01" >
+      </div>
+
+      <div class="item">
+        <img src="spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27" >
+      </div>
+    </div>
+
+    <!-- Left and right controls - - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - - --->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<!--MOVIES Text Red UnderLine- - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - - -->
+<div class="container">
+
+
+<center>
+  </br>
+  <p style="font-size:20px;"> M O V I E S</p>
+
+  <div class="horiLine"style="border:solid 2px crimson;">
+
+  </div>
+</center>
+</div>
+</br></br></br>
+
+
+<!--
+Filter on Left Hand Side with CheckBoxes to Sort By Language Genre Format - - - - - - - - - - - - - - - -  - -
+-->
+
+<div class="container topMovies"style="border:3px solid white;">
+
+  <center>
+  <h4><b>FILTER By</h4></b>
+    <div class="horiLine"style="width:100%;border-color:crimson;">
+    </div>
+  </br>
+  </center>
+
+  <p>LANGUAGE</p>
+  <ul class="list-group"style="overflow-y:scroll;overflow-x:scroll;max-height:300px;">
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Hindi">  Hindi</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="English">  English</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Tamil">  Tamil</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Telugu">  Telugu</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Marathi">  Marathi</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Malayalam">  Malayalam</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Punjabi">  Punjabi</li>
+  </ul>
+  <p>GENRE</p>
+  <ul class="list-group"style="overflow-y:scroll;overflow-x:scroll;max-height:200px;">
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Action">  Action</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Animation">  Animation</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Adventure">  Adventure</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Comedy">  Comedy</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Crime">  Crime</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Drama">  Drama</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Family">  Family</li>
+  </ul>
+  <p>FORMAT</p>
+  <ul class="list-group"style="overflow-y:scroll;overflow-x:scroll;max-height:200px;">
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="2D">  2D</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="3D">  3D</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="4DX">  4DX</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="IMAX3D">  IMAX 3D</li>
+
+  </ul>
+</div>
+
+
+<!--
+Movie GalleryGoes Here NOW SHOWING MOVIES LISTED BELOW IN bootstrap container-fluid- - - - - - - - - - -  - - - - - - - - - - - - - - - -
+-->
+<div class="container-fluid"style="background-color:whitesmoke;">
+</br><center><h4 style="font-size:17px;margin-right:20%;">NOW SHOWING</h4>
+  <div class="horiLine"style="margin-left:8%;border:solid 2px crimson">
+
+  </div>
+  </center>
+  <!--Box Layout for Individual Movies with details like boxImg:for Image
+                                                         boxText:for Language Genre
+                                                         boxBook:for BooK Now Logo
+                                                       -->
+  <div class="box" >
+       <div class="boxImg">
+       <img src="transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59";height="45%"width="100%" >
+       </div>
+
+       <div class="boxText">
+       <h4 style="margin-top:5px;"><span>Transformers The last Knight</span></h4>
+       <p style="margin-top:3px;"><span >English</span></br>
+
+        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
+        </p>
+
+        </div>
+         <div class="boxBook">
+           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+         </div>
+
+  </div>
+  <!--Box Layout for Individual Movies with details like boxImg:for Image
+                                                         boxText:for Language Genre
+                                                         boxBook:for BooK Now Logo
+                                                       -->
+  <div class="box" >
+       <div class="boxImg">
+       <img src="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01";height="45%"width="100%" >
+       </div>
+
+       <div class="boxText">
+       <h4 style="margin-top:5px;"><span>Ek Haseena Thi</span></h4>
+       <p style="margin-top:3px;"><span >Hindi</span></br>
+
+        <span id="boxGenre">Romance</span><span id="boxGenre"> Adventure</span>
+        </p>
+
+        </div>
+         <div class="boxBook">
+           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+         </div>
+
+  </div>
+  <!--Box Layout for Individual Movies with details like boxImg:for Image
+                                                         boxText:for Language Genre
+                                                         boxBook:for BooK Now Logo
+                                                       -->
+  <div class="box" >
+       <div class="boxImg">
+       <img src="spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27";height="45%"width="100%" >
+       </div>
+
+       <div class="boxText">
+       <h4 style="margin-top:5px;"><span>SpiderMan Homecoming</span></h4>
+       <p style="margin-top:3px;"><span >English</span></br>
+
+        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
+        </p>
+
+        </div>
+         <div class="boxBook">
+           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+         </div>
+
+  </div>
+
+
+
+    <center><input class="LodMor"type="submit" name="button"value="LOAD MORE" ></input></center>
+
+
+
+
+</div>
+</br> </br> </br>
+
+
+
+<!--
+Left Side Top Movies with List Group to show Percentage Hearts for Movies
+-->
+<div class="container topMovies">
+  <center>
+  <p>T O P  M O V I E S</P>
+    <div class="horiLine">
+    </div>
+  </br>
+  </center>
+  <ul class="list-group">
+    <li class="list-group-item"><span class="heart"></span> 90% TubeLight</li>
+    <li class="list-group-item"><span class="heart"></span> 85% Transformers</li>
+    <li class="list-group-item"><span class="heart"></span> 80% Zindagi</li>
+    <li class="list-group-item"><span class="heart"></span> 52% Zindagi</li>
+    <li class="list-group-item"><span class="heart"></span> 40% Zindagi</li>
+    <li class="list-group-item"><span class="heart"></span> 30% Zindagi</li>
+    <li class="list-group-item"><span class="heart"></span> 29% Zindagi</li>
+  </ul>
+</div>
+</br>
+<!--
+COMING SOON Movies - - - - - - - - -  - - - - - - - - - -  -
+-->
+<div class="container-fluid"style="background-color:white;">
+  <center><h4 style="font-size:17px;margin-right:20%;">COMING SOON</h4>
+  <div class="horiLine"style="margin-left:8%;border:solid 2px crimson">
+
+  </div>
+  </center>
+  <!--Box Layout for Individual Movies with details like boxImg:for Image
+                                                         boxText:for Language Genre
+                                                         boxBook:for BooK Now Logo
+                                                       -->
+  <div class="box" >
+       <div class="boxImg">
+       <img src="transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59";height="45%"width="100%" >
+       </div>
+
+       <div class="boxText">
+       <h4 style="margin-top:5px;"><span>Transformers The last Knight</span></h4>
+       <p style="margin-top:3px;"><span >English</span></br>
+
+        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
+        </p>
+
+        </div>
+         <div class="boxBook">
+           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+         </div>
+
+  </div>
+  <!--Box Layout for Individual Movies with details like boxImg:for Image
+                                                         boxText:for Language Genre
+                                                         boxBook:for BooK Now Logo
+                                                       -->
+  <div class="box" >
+       <div class="boxImg">
+       <img src="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01";height="45%"width="100%" >
+       </div>
+
+       <div class="boxText">
+       <h4 style="margin-top:5px;"><span>Ek Haseena Thi</span></h4>
+       <p style="margin-top:3px;"><span >Hindi</span></br>
+
+        <span id="boxGenre">Romance</span><span id="boxGenre"> Adventure</span>
+        </p>
+
+        </div>
+         <div class="boxBook">
+           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+         </div>
+
+  </div>
+  <!--Box Layout for Individual Movies with details like boxImg:for Image
+                                                         boxText:for Language Genre
+                                                         boxBook:for BooK Now Logo
+                                                       -->
+  <div class="box" >
+       <div class="boxImg">
+       <img src="spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27";height="45%"width="100%" >
+       </div>
+
+       <div class="boxText">
+       <h4 style="margin-top:5px;"><span>SpiderMan Homecoming</span></h4>
+       <p style="margin-top:3px;"><span >English</span></br>
+
+        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
+        </p>
+
+        </div>
+         <div class="boxBook">
+           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+         </div>
+
+  </div>
+
+
+
+    <center><input class="LodMor"type="submit" name="button"value="LOAD MORE" ></input></center>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</br>
+</br>
+</br>
+</br></br></br></br></br></br></br></br><center>FOOTER</center></br></br></br>

@@ -1,0 +1,235 @@
+<style>
+  td{
+    background-color: white;
+  }
+  th{
+    background-color: white;
+  }
+</style>
+<!-- <div class="container">
+  <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
+  <ul class="list-group user-list">
+    <li class="list-group-item" ng-repeat="user in admin.users">
+	    <div class="user-info">
+	        <strong>{{user.name}}</strong><br>
+	        <span class="text-muted">{{user.email}}</span>
+	    </div>
+        <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+    </li>
+  </ul>
+</div> -->
+<div class="container-fluid"name="con"
+style="background-color:whitesmoke;position:relative;padding:0;overflow-x:hidden;margin-left:0px;margin-top:-20px;transition:0.4s;">
+
+<div class="menbod"onclick="openMenu()"style="float:left;margin-left:15px;">
+<div class="MenuIcon">
+
+</div>
+<div class="MenuIcon">
+
+</div><div class="MenuIcon">
+
+</div>
+</div>
+
+<h3 class="dashboard"style="float:left;margin-top:8px;margin-left:5%;">DashBoard</h3>
+<!-- <h4 style="float:right;margin-top:10px;margin-right:5%;">LogOut</h4> -->
+<!--
+
+=================================================================
+
+-->
+<!-- - -></br></br> -->
+</br></br>
+<!-- <div ng-view >-->
+
+<div class="container-fluid"style="background-color:whitesmoke;padding-top:30px;padding-left:30px;height:900px">
+<h1 style="font-family:didot;color:indigo; margin-left:20%;;">Add Theatres</h1>
+  <div class="row">
+    <div class="row-md-6"style="max-width:50%;margin-left:20%;">
+
+      <div class="form-group">
+        <label for="TheatreName"><b>Theatre Name:</b></label>
+        <input type="text" id="TName"placeholder="Theatre Name" ng-model="User.TheatreName"class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label for="State"><b>State:</b></label>
+
+        <select name="state" class="form-control" id="State"ng-model="User.State">
+          <option value="Delhi">Delhi</option>
+
+    <option value="Haryana">Haryana</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="Goa">Goa</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="AndhraPradesh">AndhraPradesh</option>
+  </select>
+
+      </div>
+      <div class="form-group">
+        <label for="City"><b>City:</b></label>
+
+        <select name="city" class="form-control" id="City"ng-model="User.City">
+    <option value="Delhi">Delhi</option>
+    <option value="Faridabad">Faridabad</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Pune">Pune</option>
+    <option value="Kolkata">Kolkata</option>
+  </select>
+
+
+      </div>
+      <div class="form-group">
+        <label for="Seats">Seating Capacity</label>
+        <input type="text" placeholder="0" id="Seats"ng-model="User.Seats"class="form-control"/>
+      </div>
+       <div class="form-group">
+        <button class="btn btn-success" ng-show="add"ng-click="RegisterUser()">Add</button>
+        <button class="btn btn-warning" ng-show="save"ng-click="SaveUser()">Save</button>
+
+      </div>
+      </div>
+
+    </div>
+
+    <div class="row"style="overflow-x:scroll;">
+      <div class="row-md-6"style="border:solid 2px whitesmoke;">
+        <table class="table table-bordered"style="background-color:white;border:solid 2px gainsboro">
+          <tr>
+            <th>Theatre</br> Name</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Seats</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tr ng-repeat="x in TheatreDetails">
+            <td>{{x.TheatreName}}</td>
+            <td>{{x.State}}</td>
+            <td>{{x.City}}</td>
+
+            <td>{{x.Seats}}</td>
+            <td><button class="btn btn-warning" ng-click="GetUser(x)"><span class="glyphicon glyphicon-edit"></span></button></td>
+            <td ><button class="btn btn-danger" ng-click="DeleteUser(x)"><span class="glyphicon glyphicon-trash"></span></button></td>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<!--</div> -->
+</div>
+
+
+<!-- </div> -->
+
+<div id="topmo"class="topMovies"style="border:3px solid white;overflow-y:scroll;top:0;">
+
+  <center>
+  <!-- <b><h4 style="color:white;margin-top:15px;font-family:sans-serif;">BOOK MY MOVIE</h4></b> -->
+
+
+</br>
+  <div class="closeMen"onclick="openMenu()"style="margin-top:4px;margin-left:0;">
+    <div class="MenuIcon"style="transform:rotate(-45deg) translate(-9px,4px);background-color:white;">
+
+    </div>
+    <div class="MenuIcon"style="transform:rotate(45deg);background-color:white;opacity:0;">
+
+    </div>
+    <div class="MenuIcon"style="transform:rotate(45deg) translate(-8px,-4px);background-color:white;">
+
+    </div>
+  </div>
+  <!-- <div class="horiLine"style="width:100%;border:solid 0.6px white !important;border-color:white;">
+  </div> -->
+  </center>
+
+
+ </br>
+
+  <!-- <div class="list-group"id="lgtr" onclick="openMenu()"style="transition: 1.8s;width:0%;">
+    <a href="#"  class="list-group-item active"><span class="glyphicon glyphicon-home"></span> DASHBOARD</a></br>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-film"></span>  THEATRES</a></br>
+    <a href="#/movies" class="list-group-item"><span class="glyphicon glyphicon-play"></span>  MOVIES</a></br>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-th"></span> MANAGE SHOWS</a></br>
+    <a href="#"class="list-group-item">ADD SHOW TIMINGS</a></br>
+
+  </div> -->
+  <div class="btn-group-vertical"style="width:100%;"onclick="openMenu()">
+    <a class="btn btn-danger active " style=""href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-home"></span>DASHBOARD </button>
+    </a>
+  </br>
+    <a class="btn btn-danger active"href="/theatres">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-film"></span>THEATRES </button>
+    </a>
+  </br>
+    <a class="btn btn-danger active"href="#/movies">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-play"></span>MOVIES </button>
+    </a>
+    </br>
+    <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
+    </a>
+    </br>
+    <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;">ADD SHOW TIMINGS </button>
+    </a>
+  </div>
+
+</div>
+
+<script >
+
+
+function openMenu()
+{
+
+
+var con=document.getElementsByName('con');
+var menu=document.getElementsByClassName('topMovies');
+var list=document.getElementById('lgtr');
+//var mb=document.getElementsByClassName('menbod');
+//var tb=document.getElementsByClassName('TopBarr');
+//var db=document.getElementsByClassName('dashboard');
+//tb[0].style.marginLeft=tb[0].style.marginLeft==='0%'?'20%':'0%';
+//tb[0].style.width=tb[0].style.width==='100%'?'80%':'100%';
+//db[0].style.marginLeft=db[0].style.marginLeft==='70px'?'15px':'70px';
+//con[0].style.marginLeft=con[0].style.marginLeft==='280px'?'0px':'280px';
+
+//menu[0].style.width=menu[0].style.width==='250px'?'0':'250px';
+//db[0].style.zIndex=db[0].style.zIndex==='-15'?'15':'-15';
+//mb[0].style.opacity=mb[0].style.opacity==='0'?'1':'0';
+con[0].style.marginLeft=con[0].style.marginLeft==='280px'?'0':'280px';
+
+ menu[0].style.width=menu[0].style.width==='280px'?'0px':'280px';
+ list.style.width=list.style.width==='0%'?'100%':'0%';
+//  menu[0].style.height=menu[0].style.height==='100%'?'0%':'100%';
+// con[0].style.marginLeft=con[0].style.marginLeft==='20%'?'0':'20%';
+
+
+/*if(parseInt(window.innerWidth)<600){
+  db[0].style.opacity=db[0].style.opacity==='1'?'0':'1';
+}
+else {
+  db[0].style.opacity='1';
+}*/
+
+
+}
+
+
+
+
+
+
+
+</script>
