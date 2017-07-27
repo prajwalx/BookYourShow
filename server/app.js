@@ -4,11 +4,15 @@
 
 'use strict';
 
-import express from 'express';
-import mongoose from 'mongoose';
+// import express from 'express';
+var express=require('express');
+// import mongoose from 'mongoose';
+var mongoose=require('mongoose');
 mongoose.Promise = require('bluebird');
-import config from './config/environment';
-import http from 'http';
+// import config from './config/environment';
+var config=require('./config/environment');
+// import http from 'http';
+var http=require('http');
 
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
