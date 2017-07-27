@@ -13,7 +13,7 @@ import config from './config/environment';
 // var config=require('./config/environment');
 import http from 'http';
 
-var path = require('path');
+import path from 'path';
 
 // var http=require('http');
 
