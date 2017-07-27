@@ -31,6 +31,7 @@ if (config.seedDB) { require('./config/seed'); }
 // Setup server
 var app = express();
 var server = http.createServer(app);
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',
   path: '/socket.io-client'
@@ -43,7 +44,7 @@ require('./routes').default(app);
 function startServer() {
   app.angularFullstack = server.listen(config.port, config.ip, function() {
     console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
-    app.use('./bower_components', express.static(path.join(__dirname, 'bower_components')));
+
   });
 }
 
