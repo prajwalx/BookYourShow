@@ -114,8 +114,7 @@
   "scripts": {
     "test": "gulp test",
     "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
-    
-    "start": "./node_modules/.bin/babel-node  node server"
+    "start": "node server"
 
   },
   "private": true
