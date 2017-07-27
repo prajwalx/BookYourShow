@@ -118,7 +118,8 @@
   "scripts": {
     "test": "gulp test",
     "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
-    "start": "babel-node server"
+    "start": "babel-node server",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "private": true
 }
