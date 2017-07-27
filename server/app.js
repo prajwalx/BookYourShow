@@ -12,6 +12,9 @@ mongoose.Promise = require('bluebird');
 import config from './config/environment';
 // var config=require('./config/environment');
 import http from 'http';
+
+var path = require('path');
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 // var http=require('http');
 
 // Connect to MongoDB
