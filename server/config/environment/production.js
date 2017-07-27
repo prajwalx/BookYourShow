@@ -19,7 +19,8 @@ module.exports = {
           process.env.MONGOHQ_URL ||
           process.env.OPENSHIFT_MONGODB_DB_URL +
           process.env.OPENSHIFT_APP_NAME ||
-          'mongodb://prajwal:prajwal28@ds125183.mlab.com:25183/yomanprojectfolder'
+          'mongodb://prajwal:prajwal28@ds125183.mlab.com:25183/yomanprojectfolder-dev'
           // 'mongodb://localhost/yomanprojectfolder'
   }
+  seedDB: true
 };

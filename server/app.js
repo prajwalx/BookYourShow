@@ -19,7 +19,7 @@ import http from 'http';
 
 // Connect to MongoDB
 // mongoose.connect(config.mongo.uri, config.mongo.options);
-mongoose.connect(config.mongo.uri,config.mongo.options);
+mongoose.connect('mongodb://prajwal:prajwal28@ds125183.mlab.com:25183/yomanprojectfolder-dev');
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);
