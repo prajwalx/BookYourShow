@@ -108,7 +108,8 @@
     "sinon-chai": "^2.8.0",
     "supertest": "^1.1.0",
     "utile": "~0.3.0",
-    "wiredep": "^2.2.2"
+    "wiredep": "^2.2.2",
+    "bower":"^1.8.0"
   },
   "engines": {
     "node": "^4.4.0",
