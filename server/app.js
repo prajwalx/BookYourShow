@@ -13,7 +13,7 @@ import config from './config/environment';
 // var config=require('./config/environment');
 import http from 'http';
 
-import path from 'path';
+
 
 // var http=require('http');
 
@@ -31,7 +31,7 @@ if (config.seedDB) { require('./config/seed'); }
 // Setup server
 var app = express();
 var server = http.createServer(app);
-app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+
 var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',
   path: '/socket.io-client'
