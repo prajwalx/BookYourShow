@@ -21,6 +21,6 @@ module.exports = {
           process.env.OPENSHIFT_APP_NAME ||
           'mongodb://prajwal:prajwal28@ds125183.mlab.com:25183/yomanprojectfolder-dev'
           // 'mongodb://localhost/yomanprojectfolder'
-  }
+  },
   seedDB: true
 };
