@@ -4,6 +4,7 @@ angular.module('yoManprojectfolderApp')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/theatre', {
-        template: '<theatre></theatre>'
+        template: '<theatre></theatre>',
+        authenticate:'admin'
       });
   });

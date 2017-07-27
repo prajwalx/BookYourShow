@@ -2,7 +2,7 @@
 
 angular.module('yoManprojectfolderApp', ['yoManprojectfolderApp.auth',
     'yoManprojectfolderApp.admin', 'yoManprojectfolderApp.constants', 'ngCookies', 'ngResource',
-    'ngSanitize', 'ngRoute', 'btford.socket-io', 'validation.match'
+    'ngSanitize', 'ngRoute', 'btford.socket-io', 'validation.match','chart.js'
   ])
   .config(function($routeProvider, $locationProvider) {
     $routeProvider.otherwise({
@@ -11,4 +11,3 @@ angular.module('yoManprojectfolderApp', ['yoManprojectfolderApp.auth',
 
     $locationProvider.html5Mode(true);
   });
-  

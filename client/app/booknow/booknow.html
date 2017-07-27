@@ -1,0 +1,169 @@
+<!-- <script>
+$(document).ready(function () {
+var menu = $('#fixbar2');
+var origOffsetY = menu.offset().top;
+function scroll() {
+    if ($(window).scrollTop() >= origOffsetY) {
+        $('#fixbar2').addClass('navbar-fixed-top');
+         document.getElementById('fixbar2').style.top="-2px";
+
+    } else {
+        $('#fixbar2').removeClass('navbar-fixed-top');
+         document.getElementById('fixbar2').style.top="101px";
+    }
+   }
+  document.onscroll = scroll;
+});
+</script> -->
+
+
+
+
+<nav class="navbar navbar-inverse"id="BookingTopBar2">
+  <div class="container-fluid"style="height:250px;">
+    <!-- <div class="navbar-header"> -->
+
+
+      <!-- <a class="navbar-brand" href="#"style="margin-top:25px;"> -->
+
+        <div class=""style="margin-left:70px;"style="height:100%;width255px;">
+          <img src="{{booknowCtrl.Movie.Poster}}" style="max-width:100%;max-height:100%;float:left;"alt="">
+
+
+
+           <span class="MovieTit"style="color:mediumseagreen;font-size:40px;margin-left:20px;">{{booknowCtrl.Movie.Title}}</span><br>
+           <span style="color:white;font-size:20px;font-weight:normal;margin-left:20px;">Hindi</span><br>
+           <span style="color:white;font-size:17px;font-weight:normal;margin-left:20px;"><u>Genre </u>:&nbsp{{booknowCtrl.Movie.Genre}}</span><br>
+           <span style="color:white;font-size:17px;font-weight:normal;margin-left:20px;"><u>Duration </u>:&nbsp{{booknowCtrl.Movie.Duration}}</span><br>
+           <span style="color:white;font-size:17px;font-weight:normal;margin-left:20px;"><u>Actors </u>:&nbsp{{booknowCtrl.actors}}</span><br>
+           <span style="color:white;font-size:17px;font-weight:normal;margin-left:20px;"><u>Directors </u>:&nbsp{{booknowCtrl.directors}}</span><br>
+
+        </div>
+
+      <!-- </a> -->
+
+      <!-- <a class="navbar-brand" href="#"style="margin-top:25px;">
+        <span class="glyphicon glyphicon-menu-left"style="font-size:23px;margin-top:25px;float:left;margin-left:40px;"> </span>
+        <div class=""style="margin-left:70px;">
+          <u style="color:white"> <span style="font-size:30px;color:white;"ng-bind="booknowCtrl.Movie.Title"></span></u>
+          <span style="font-size:15px;"><br>Hindi</span>
+          <span style="font-size:15px;"><br>Action Sport Drama</span>
+        </div>
+      </a> -->
+      <!-- <a class="navbar-brand" href="#"style="margin-left:50px;">
+        <!- - <span class="glyphicon glyphicon-film"style="font-size:23px;margin-top:15px;float:left;"> </span> - ->
+        <div class=""style="margin-left:10px;margin-top:15px;font-weight:normal;font-family:comic sans ms;font-size:28px;color:white;">
+          <span class="glyphicon glyphicon-menu-left"style="font-size:23px;margin-top:10px;float:left"> </span>
+          <span >book </span>
+          <span style="display:inline-block;transform: rotate(-8deg);border-radius:20%;background-color:crimson;border:solid white 3px;padding:7px;color:white;"> your</span>
+           <span style="margin-top:12px;"> show</span>
+
+        </div>
+      </a>
+    </div>-->
+
+    <!-- <div class="container-fluid navbar-fixed-top "id="fixbar2">
+      <form class="navbar-form" >
+      <div class="input-group mydesign"style="">
+        <input type="text" class="form-control"id="SearchBarHomePage2" placeholder="Book Tickets for Movies"ng-model="homeCtrl.SearchMovieQuery">
+        <div class="input-group-btn mydesign22">
+          <button class="btn btn-default" style="height:inherit;"type="submit"ng-click="homeCtrl.SearchMovie()">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+
+      </div>
+      </form>
+
+    </div> -->
+
+
+
+
+
+    <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+  </div>
+</nav>
+
+<div class="container-fluid"style="background-color:whitesmoke;min-height:900px;">
+
+   <div class="container-fluid"style="background-color:white;margin-top:-38px;">
+    <div class="row">
+      <div class="row-md-8"style="margin-left:10%">
+        <ul class="nav nav-pills"style="float:left;font-size:15px;padding-right:2px;">
+          <li ng-repeat="x in booknowCtrl.Dates"ng-class="{active:x==booknowCtrl.SelectedDate}"ng-click="booknowCtrl.SelectDate(x)"><a href="#"><span class="glyphicon glyphicon-calendar"></span>{{x}}</a></li>
+        <!-- <li class=""><a href="#"><span class="glyphicon glyphicon-calendar"></span>20/07/2017</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-calendar"></span>20/07/2017</a></li>
+        <li class=""><a href="#"><span class="glyphicon glyphicon-calendar"></span>20/07/2017</a></li> -->
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+  <br>
+
+  <div class="container"style="background-color:white;float:left;margin-left:10%;padding:0;border:solid 4px gainsboro;min-height:400px;">
+
+    <div class="row">
+      <div class="col-md-12"style="margin-left:0%;">
+
+        <table class="table table-responsive table-hover"style="">
+          <tr class="trFormat"ng-repeat="x in booknowCtrl.mapmoviefromDB">
+            <th style="font-size:16px;color:dimgrey"class="tbformat">{{x.TheatreName.TheatreName}}:{{x.TheatreName.Locations}}</th>
+            <td class="tbformat"style="font-size:16px;"ng-repeat="t in x.ShowTimings">
+
+                        <!-- ng-class="{TimeActive:x.TheatreName._id==booknowCtrl.SelectedTheatre._id}" -->
+                <a href="#"class="nostyle"><span class="hoverStyle2"ng-click="booknowCtrl.SelectTime(t,x.TheatreName,x)"
+                style="border:solid 2px silver;padding:10px;border-radius:15% ;color:mediumblue;">
+                  {{t}}</span></a>
+            </td>
+
+
+          </tr>
+          <!-- <tr class="trFormat">
+            <th class="tbformat"style="font-size:18px">PVR:Saket</th>
+            <td class="tbformat"style="font-size:16px;">
+                <span style="border:solid 2px silver;padding:10px;border-radius:15% ;color:mediumblue;">
+                  02:45</span>
+            </td>
+            <td class="tbformat"style="font-size:16px;">
+                <span style="border:solid 2px silver;padding:10px;border-radius:15% ;color:mediumblue;">
+                  02:45</span>
+            </td>
+          </tr> -->
+
+        </table>
+
+      </div>
+
+
+        <!-- <div class="col-md-1">
+          <img src="../assets/images/Screen Shot 2017-07-23 at 4.18.21 PM.png" alt="">
+        </div> -->
+
+
+
+
+    </div>
+
+
+  </div>
+
+  <div style="float:right;margin-right:8%;">
+<!-- /YoManprojectfolder/client/assets/images/Screen Shot 2017-07-23 at 4.58.15 PM.png -->
+
+  <img src="../assets/images/Screen Shot 2017-07-23 at 4.58.15 PM.png" style="max-width:100%;max-height:100%;"alt="">
+
+
+
+
+  </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,53 @@
+
+#BookingTopBar2{
+  top:-20px;
+  /*height: 140px;*/
+  max-height:253px;
+  /*background-color: #001f3f;*/
+  /*background-color: navy*/
+
+  background-color: #001226;
+
+
+}
+#fixbar2
+{
+position: fixed;background-color:rgba(0,0,0,0.2);width:100%;z-index:10;transition: 0.2s ease-in-out;top:50px;height: 30px;
+
+}
+#SearchBarHomePage2
+{
+ float: left;
+ height: 50px;
+}
+.mydesign22
+{
+ margin-left: 35% ;
+ min-width: 30%;
+ height: 50px;
+
+
+}
+.tbformat{
+
+  padding-bottom:25px !important;
+  padding-top:25px !important;
+  border:transparent !important;
+}
+.trFormat{
+  /*border-color: transparent !important;*/
+  border:solid 2px gainsboro !important ;
+}
+.MovieTit:hover{
+  color: white;
+  text-decoration: underline;
+}
+.TimeActive{
+  background-color: crimson;
+  color:white !important;
+}
+.hoverStyle2:hover{
+  background-color:mediumblue;
+  color: white !important;
+  border-color: crimson;
+}

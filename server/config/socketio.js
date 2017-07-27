@@ -19,6 +19,9 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/ratingendpoint/ratingendpoint.socket').register(socket);
+  require('../api/SeatsBookedEndPoint/SeatsBookedEndPoint.socket').register(socket);
+  require('../api/mapmovieEndpoint/mapmovieEndpoint.socket').register(socket);
   require('../api/theatresendpoint/theatresendpoint.socket').register(socket);
   require('../api/homeEndPoint/homeEndPoint.socket').register(socket);
   require('../api/moviesendpoint/moviesendpoint.socket').register(socket);

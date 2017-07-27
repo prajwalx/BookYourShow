@@ -1,10 +1,14 @@
+.BodyBooking{
+  background-color: whitesmoke;
+  min-height: 900px;
+}
 .seat{
   width: 20px;
   height:20px;
   border-radius: 20%;
   border:solid 2.3px mediumseagreen;
   text-align: center;
-  color: grey;
+  color: silver;
 
 }
 .seat:hover{
@@ -19,10 +23,43 @@
   background-color: mediumseagreen;
   color:white ;
 }
-#SeatLayout td{
-  padding-left: 11px;
+.seatDisable{
+  width: 20px;
+  height:20px;
+  border-radius: 20%;
+  border:solid 2.3px grey;
+  text-align: center;
+  color: silver;
+  background-color: grey;
+  color:white ;
+}
+
+/*td.#SeatLayout {
+  padding-left: -100px;
+
+}*/
+/*#SeatHeader th{
+  padding-left: 0px;
+}*/
+
+#BookingTopBar{
+  top:0px;
+  height: 110px;
+  /*background-color: #001f3f;*/
+  background-color: #001226;
 
 }
-#SeatHeader th{
-  padding-left: 15px;
+.TableHeaderNoBorder{
+  border: none !important;
+
+}
+td.TableHeaderNoBorder{
+  /*width: 23px !important; 28*/
+  width: 30px;
+
+}
+th.TableHeaderNoBorder{
+  /*width: 20px;
+  cellpadding: 5px;*/
+  
 }

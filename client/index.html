@@ -25,6 +25,12 @@
       <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="app/movies/movies.css">
       <link rel="stylesheet" href="app/booking/booking.css">
+      <link rel="stylesheet" href="app/booknow/booknow.css">
+      <link rel="stylesheet" href="app/ratemovie/ratemovie.css">
+      <link rel="stylesheet" href="app/ratemovie/star.css">
+
+      <link rel="stylesheet" href="app/mapmovie/bootstrap-material-datetimepicker.css">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="components/footer/footer.css">
       <!-- endinjector -->
@@ -40,6 +46,7 @@
     <!-- ########MY WORK -->
   </head>
   <body ng-app="yoManprojectfolderApp">
+
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -67,15 +74,24 @@
   </div>
 
   </nav> -->
-  <navbar></navbar>
+
+  <navbar ng-show="IndexBar"></navbar>
+
   <!--Search Bar Moving always Top Using Jquery add remove class 'navbar-fixed-top' on scroll
   - - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - - -->
   <div ng-view>
 
   </div>
+<!--  FOOTER-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom"style="height:60px;">
+  <div class="container-fluid">
+    <br>
+    <center><p style="color:white;"> Copyright (c) 2017  All Rights Reserved.Designed and Developed by Prajwal Bhati</p></center>
 
+  </div>
 
-
+</nav>
+<!--  FOOTER-->
   </body>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -105,6 +121,9 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/chart.js/dist/Chart.js"></script>
+      <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -136,6 +155,18 @@
 
       <script src="app/booking/booking.js"></script>
 
+      <script src="app/booknow/booknow.controller.js"></script>
+
+      <script src="app/booknow/booknow.js"></script>
+
+      <script src="app/confirmation/confirmation.controller.js"></script>
+
+      <script src="app/confirmation/confirmation.js"></script>
+
+      <script src="app/editmoviemapping/editmoviemapping.controller.js"></script>
+
+      <script src="app/editmoviemapping/editmoviemapping.js"></script>
+
       <script src="app/home/home.controller.js"></script>
 
       <script src="app/home/home.js"></script>
@@ -144,9 +175,25 @@
 
       <script src="app/main/main.js"></script>
 
+      <script src="app/mapmovie/bootstrap-material-datetimepicker.js"></script>
+
+      <script src="app/mapmovie/mapmovie.controller.js"></script>
+
+      <script src="app/mapmovie/mapmovie.js"></script>
+
       <script src="app/movies/movies.controller.js"></script>
 
       <script src="app/movies/movies.js"></script>
+
+      <script src="app/payment/payment.controller.js"></script>
+
+      <script src="app/payment/payment.js"></script>
+
+      <script src="app/ratemovie/ratemovie.controller.js"></script>
+
+      <script src="app/ratemovie/ratemovie.js"></script>
+
+      <script src="app/ratemovie/star.js"></script>
 
       <script src="app/theatre/theatre.controller.js"></script>
 

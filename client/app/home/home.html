@@ -7,6 +7,7 @@ function scroll() {
     if ($(window).scrollTop() >= origOffsetY) {
         $('#fixbar').addClass('navbar-fixed-top');
          document.getElementById('fixbar').style.top="-2px";
+
     } else {
         $('#fixbar').removeClass('navbar-fixed-top');
          document.getElementById('fixbar').style.top="51px";
@@ -19,13 +20,14 @@ function scroll() {
 
 <div class="container-fluid "id="fixbar">
   <form class="navbar-form" >
-  <div class="input-group mydesign">
-    <input type="text" class="form-control"id="SearchBarHomePage" placeholder="Book Tickets for Movies">
+  <div class="input-group mydesign"style="">
+    <input type="text" class="form-control"id="SearchBarHomePage" placeholder="Book Tickets for Movies"ng-model="homeCtrl.SearchMovieQuery">
     <div class="input-group-btn mydesign">
-      <button class="btn btn-default" type="submit">
+      <button class="btn btn-default" style="height:inherit;"type="submit"ng-click="homeCtrl.SearchMovie()">
         <i class="glyphicon glyphicon-search"></i>
       </button>
     </div>
+
   </div>
   </form>
 
@@ -90,7 +92,9 @@ function scroll() {
 Filter on Left Hand Side with CheckBoxes to Sort By Language Genre Format - - - - - - - - - - - - - - - -  - -
 -->
 
-<div class="container topMovies"style="border:3px solid white;">
+<div class="container topMovies"style="border:5px solid white;">
+
+
 
   <center>
   <h4><b>FILTER By</h4></b>
@@ -99,15 +103,27 @@ Filter on Left Hand Side with CheckBoxes to Sort By Language Genre Format - - - 
   </br>
   </center>
 
-  <p>LANGUAGE</p>
+  <p>THEATRES</p>
   <ul class="list-group"style="overflow-y:scroll;overflow-x:scroll;max-height:300px;">
-    <li class="list-group-item"><input type="checkbox" name="ckb" value="Hindi">  Hindi</li>
-    <li class="list-group-item"><input type="checkbox" name="ckb" value="English">  English</li>
+     <li class="list-group-item llii"ng-repeat="x in homeCtrl.Theatres" ><a href="#"class="nostyle">
+       <div class="list-group-item hoverStyle"id="{{x._id}}"ng-class="{myActive:x._id==homeCtrl.SelectedId}"ng-click="homeCtrl.TheatreFilter(x._id)">
+         {{x.TheatreName}}:{{x.Locations}}
+       </div></a></li>
+
+  </ul>
+  <p>MOVIE DATES</p>
+  <ul class="list-group"style="overflow-y:scroll;overflow-x:scroll;max-height:300px;">
+    <!-- <li class="list-group-item"><input type="checkbox" style="width:100%;float:left"name="ckb" value="Hindi">  Hindi</li> -->
+    <li class="list-group-item llii"ng-repeat="x in homeCtrl.Dates" ><a href="#"class="nostyle">
+      <div class="list-group-item hoverStyle"id="{{x}}"ng-class="{myActive:x==homeCtrl.SelectedDateId}"ng-click="homeCtrl.DateFilter(x)">
+        {{x}}
+      </div></a></li>
+    <!-- <li class="list-group-item"><input type="checkbox" name="ckb" value="English">  English</li>
     <li class="list-group-item"><input type="checkbox" name="ckb" value="Tamil">  Tamil</li>
     <li class="list-group-item"><input type="checkbox" name="ckb" value="Telugu">  Telugu</li>
     <li class="list-group-item"><input type="checkbox" name="ckb" value="Marathi">  Marathi</li>
     <li class="list-group-item"><input type="checkbox" name="ckb" value="Malayalam">  Malayalam</li>
-    <li class="list-group-item"><input type="checkbox" name="ckb" value="Punjabi">  Punjabi</li>
+    <li class="list-group-item"><input type="checkbox" name="ckb" value="Punjabi">  Punjabi</li> -->
   </ul>
   <p>GENRE</p>
   <ul class="list-group"style="overflow-y:scroll;overflow-x:scroll;max-height:200px;">
@@ -127,14 +143,14 @@ Filter on Left Hand Side with CheckBoxes to Sort By Language Genre Format - - - 
     <li class="list-group-item"><input type="checkbox" name="ckb" value="IMAX3D">  IMAX 3D</li>
 
   </ul>
-</div>
 
+</div>
 
 <!--
 Movie GalleryGoes Here NOW SHOWING MOVIES LISTED BELOW IN bootstrap container-fluid- - - - - - - - - - -  - - - - - - - - - - - - - - - -
 -->
 <div class="container-fluid"style="background-color:whitesmoke;">
-</br><center><h4 style="font-size:17px;margin-right:20%;">NOW SHOWING</h4>
+</br><center><h4 style="font-size:17px;margin-right:20%;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NOW SHOWING</h4>
   <div class="horiLine"style="margin-left:8%;border:solid 2px crimson">
 
   </div>
@@ -143,7 +159,7 @@ Movie GalleryGoes Here NOW SHOWING MOVIES LISTED BELOW IN bootstrap container-fl
                                                          boxText:for Language Genre
                                                          boxBook:for BooK Now Logo
                                                        -->
-  <div class="box" >
+  <!-- <div class="box" >
        <div class="boxImg">
        <img src="transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59";height="45%"width="100%" >
        </div>
@@ -160,55 +176,71 @@ Movie GalleryGoes Here NOW SHOWING MOVIES LISTED BELOW IN bootstrap container-fl
            <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
          </div>
 
-  </div>
+  </div> -->
   <!--Box Layout for Individual Movies with details like boxImg:for Image
                                                          boxText:for Language Genre
                                                          boxBook:for BooK Now Logo
                                                        -->
-  <div class="box" >
-       <div class="boxImg">
-       <img src="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01";height="45%"width="100%" >
-       </div>
 
-       <div class="boxText">
-       <h4 style="margin-top:5px;"><span>Ek Haseena Thi</span></h4>
-       <p style="margin-top:3px;"><span >Hindi</span></br>
 
-        <span id="boxGenre">Romance</span><span id="boxGenre"> Adventure</span>
-        </p>
-
-        </div>
-         <div class="boxBook">
-           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
+    <!-- <div class="box" ng-show="homeCtrl.LocalDB" ng-repeat="x in homeCtrl.Movies">
+         <div class="boxImg">
+         <img src="{{x.Poster}}" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01";height="45%"width="100%" >
          </div>
 
-  </div>
+         <div class="boxText"style="background-color:transparent">
+         <h4 style="margin-top:5px;"><span>{{x.Title}}</span></h4>
+         <p style="margin-top:3px;"><span >Hindi</span></br>
+
+          <span id="boxGenre">{{x.Genre[0]}}</span><span id="boxGenre">{{x.Genre[1]}}</span>
+          </p>
+
+          </div>
+           <div class="boxBook">
+             <center><h4 style="">BOOK NOW</h4></center>
+           </div>
+
+    </div> -->
+    <div class="box"ng-show="homeCtrl.LocalDB" ng-repeat="x in homeCtrl.Movies | filter:homeCtrl.SearchMovieQuery">
+
+      <a href="#" ng-click="homeCtrl.OpenRateMovie(x)"class="nostyleee">
+      <div class="boxImg"style="height:100%;overflow-y:hidden;width:251px;background-color:whitesmoke;">
+       <center><img src="{{x.Poster}}" alt=""style="max-width:100%;max-height:100%;"></center>
+      </div>
+      <div class="boxText"style="height:72.5px;top:235px;">
+        <h4 style="margin-top:5px;"><span>{{x.Title}}</span></h4></a>
+        <p style="margin-top:3px;"><span >Hindi</span></br>
+
+         <span id="boxGenre">{{x.Genre}}</span>
+         </p>
+
+      </div>
+
+        <a href="#"class="nostyle"ng-click="homeCtrl.booknow(x)">
+      <div class="boxBook"style="top:307.5px;height:42.5px;">
+      <center><h5 style="">BOOK NOW</h5></center>
+      <!-- <button type="button" class="btn btn-danger form-control"style="background-color:crimson" name="button"> BOOK NOW</button> -->
+      </div>
+        </a>
+    </div>
+
+
+
+
+
+
+
   <!--Box Layout for Individual Movies with details like boxImg:for Image
                                                          boxText:for Language Genre
                                                          boxBook:for BooK Now Logo
                                                        -->
-  <div class="box" >
-       <div class="boxImg">
-       <img src="spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27";height="45%"width="100%" >
-       </div>
-
-       <div class="boxText">
-       <h4 style="margin-top:5px;"><span>SpiderMan Homecoming</span></h4>
-       <p style="margin-top:3px;"><span >English</span></br>
-
-        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
-        </p>
-
-        </div>
-         <div class="boxBook">
-           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
-         </div>
-
-  </div>
 
 
 
-    <center><input class="LodMor"type="submit" name="button"value="LOAD MORE" ></input></center>
+
+
+
+<center><input class="LodMor"type="submit" name="button"value="LOAD MORE" style=""></input></center>
 
 
 
@@ -228,14 +260,16 @@ Left Side Top Movies with List Group to show Percentage Hearts for Movies
     </div>
   </br>
   </center>
-  <ul class="list-group">
-    <li class="list-group-item"><span class="heart"></span> 90% TubeLight</li>
-    <li class="list-group-item"><span class="heart"></span> 85% Transformers</li>
+  <ul class="list-group"style="">
+    <li class="list-group-item"ng-repeat="r in homeCtrl.RatingData | orderBy:'-Rating'"><span class="heart"style="font-size:20px;"></span>
+      &nbsp&nbsp&nbsp{{r.Rating}}% &nbsp
+      <span style="text-align:left;margin-left:50px;font-weight:bold;">{{r.Movie}}</span></li>
+    <!-- <li class="list-group-item"><span class="heart"></span> 85% Transformers</li>
     <li class="list-group-item"><span class="heart"></span> 80% Zindagi</li>
     <li class="list-group-item"><span class="heart"></span> 52% Zindagi</li>
     <li class="list-group-item"><span class="heart"></span> 40% Zindagi</li>
     <li class="list-group-item"><span class="heart"></span> 30% Zindagi</li>
-    <li class="list-group-item"><span class="heart"></span> 29% Zindagi</li>
+    <li class="list-group-item"><span class="heart"></span> 29% Zindagi</li> -->
   </ul>
 </div>
 </br>
@@ -251,69 +285,101 @@ COMING SOON Movies - - - - - - - - -  - - - - - - - - - -  -
   <!--Box Layout for Individual Movies with details like boxImg:for Image
                                                          boxText:for Language Genre
                                                          boxBook:for BooK Now Logo
+                                                         "https://images-na.ssl-images-amazon.com/images/M/MV5BMTU3MjUwMzQ3MF5BMl5BanBnXkFtZTgwMjcwNjkxMjI@.jpg",
                                                        -->
-  <div class="box" >
-       <div class="boxImg">
-       <img src="transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59";height="45%"width="100%" >
-       </div>
+       <div class="box"ng-show="homeCtrl.LocalDB" >
 
-       <div class="boxText">
-       <h4 style="margin-top:5px;"><span>Transformers The last Knight</span></h4>
-       <p style="margin-top:3px;"><span >English</span></br>
+         <a href="#" class="nostyleee">
+         <div class="boxImg"style="height:100%;overflow-y:hidden;width:251px;background-color:whitesmoke;">
+          <center><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTU3MjUwMzQ3MF5BMl5BanBnXkFtZTgwMjcwNjkxMjI@.jpg"
+             alt=""style="max-width:100%;max-height:100%;"></center>
+         </div>
+         <div class="boxText"style="height:72.5px;top:235px;">
+           <h4 style="margin-top:5px;"><span>The Dark Tower</span></h4></a>
+           <p style="margin-top:3px;"><span >English</span></br>
 
-        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
-        </p>
+            <span id="boxGenre">Action,Adventure,</span>
+            </p>
 
-        </div>
-         <div class="boxBook">
-           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
          </div>
 
-  </div>
-  <!--Box Layout for Individual Movies with details like boxImg:for Image
-                                                         boxText:for Language Genre
-                                                         boxBook:for BooK Now Logo
-                                                       -->
-  <div class="box" >
-       <div class="boxImg">
-       <img src="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01";height="45%"width="100%" >
+           <a target="_blank"href="http://www.imdb.com/title/tt1648190/"class="nostyle">
+         <div class="boxBook"style="top:307.5px;height:42.5px;">
+         <center><h5 style="">VIEW NOW</h5></center>
+         <!-- <button type="button" class="btn btn-danger form-control"style="background-color:crimson" name="button"> BOOK NOW</button> -->
+         </div>
+           </a>
        </div>
+       <div class="box"ng-show="homeCtrl.LocalDB" >
 
-       <div class="boxText">
-       <h4 style="margin-top:5px;"><span>Ek Haseena Thi</span></h4>
-       <p style="margin-top:3px;"><span >Hindi</span></br>
+         <a href="#" class="nostyleee">
+         <div class="boxImg"style="height:100%;overflow-y:hidden;width:251px;background-color:whitesmoke;">
+          <center><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTkzMzM3OTM2Ml5BMl5BanBnXkFtZTgwMDM0NDU3MjI@.jpg"
+             alt=""style="max-width:100%;max-height:100%;"></center>
+         </div>
+         <div class="boxText"style="height:72.5px;top:235px;">
+           <h4 style="margin-top:5px;"><span>The Emoji Movie</span></h4></a>
+           <p style="margin-top:3px;"><span >English</span></br>
 
-        <span id="boxGenre">Romance</span><span id="boxGenre"> Adventure</span>
-        </p>
+            <span id="boxGenre">Action,Adventure,</span>
+            </p>
 
-        </div>
-         <div class="boxBook">
-           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
          </div>
 
-  </div>
-  <!--Box Layout for Individual Movies with details like boxImg:for Image
-                                                         boxText:for Language Genre
-                                                         boxBook:for BooK Now Logo
-                                                       -->
-  <div class="box" >
-       <div class="boxImg">
-       <img src="spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27";height="45%"width="100%" >
+           <a target="_blank"href="http://www.imdb.com/title/tt4877122/"class="nostyle">
+         <div class="boxBook"style="top:307.5px;height:42.5px;">
+         <center><h5 style="">VIEW NOW</h5></center>
+         <!-- <button type="button" class="btn btn-danger form-control"style="background-color:crimson" name="button"> BOOK NOW</button> -->
+         </div>
+           </a>
        </div>
+       <div class="box"ng-show="homeCtrl.LocalDB" >
 
-       <div class="boxText">
-       <h4 style="margin-top:5px;"><span>SpiderMan Homecoming</span></h4>
-       <p style="margin-top:3px;"><span >English</span></br>
+         <a href="#" class="nostyleee">
+         <div class="boxImg"style="height:100%;overflow-y:hidden;width:251px;background-color:whitesmoke;">
+          <center><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjQ5NjA2NDg1MV5BMl5BanBnXkFtZTgwMDAzNDc4MjI@.jpg"
+             alt=""style="max-width:100%;max-height:100%;"></center>
+         </div>
+         <div class="boxText"style="height:72.5px;top:235px;">
+           <h4 style="margin-top:5px;"><span>The Hitman's BodyGuard</span></h4></a>
+           <p style="margin-top:3px;"><span >English</span></br>
 
-        <span id="boxGenre">Action</span><span id="boxGenre"> Adventure</span>
-        </p>
+            <span id="boxGenre">Action,Adventure,</span>
+            </p>
 
-        </div>
-         <div class="boxBook">
-           <center><h4 style="margin-top:0px;padding-top:10px;">BOOK NOW</h4></center>
          </div>
 
-  </div>
+           <a target="_blank"href="http://www.imdb.com/title/tt1959563/"class="nostyle">
+         <div class="boxBook"style="top:307.5px;height:42.5px;">
+         <center><h5 style="">VIEW NOW</h5></center>
+         <!-- <button type="button" class="btn btn-danger form-control"style="background-color:crimson" name="button"> BOOK NOW</button> -->
+         </div>
+           </a>
+       </div>
+       <div class="box"ng-show="homeCtrl.LocalDB" >
+
+         <a href="#" class="nostyleee">
+         <div class="boxImg"style="height:100%;overflow-y:hidden;width:251px;background-color:whitesmoke;">
+          <center><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTU3MjUwMzQ3MF5BMl5BanBnXkFtZTgwMjcwNjkxMjI@.jpg"
+             alt=""style="max-width:100%;max-height:100%;"></center>
+         </div>
+         <div class="boxText"style="height:72.5px;top:235px;">
+           <h4 style="margin-top:5px;"><span>The Dark Tower</span></h4></a>
+           <p style="margin-top:3px;"><span >English</span></br>
+
+            <span id="boxGenre">Action,Adventure,</span>
+            </p>
+
+         </div>
+
+           <a target="_blank"href="http://www.imdb.com/title/tt1648190/"class="nostyle">
+         <div class="boxBook"style="top:307.5px;height:42.5px;">
+         <center><h5 style="">VIEW NOW</h5></center>
+         <!-- <button type="button" class="btn btn-danger form-control"style="background-color:crimson" name="button"> BOOK NOW</button> -->
+         </div>
+           </a>
+       </div>
+
 
 
 
@@ -339,4 +405,8 @@ COMING SOON Movies - - - - - - - - -  - - - - - - - - - -  -
 </br>
 </br>
 </br>
-</br></br></br></br></br></br></br></br><center>FOOTER</center></br></br></br>
+</br></br></br></br></br></br></br></br><center></center></br></br></br>
+<script type="text/javascript">
+
+
+</script>

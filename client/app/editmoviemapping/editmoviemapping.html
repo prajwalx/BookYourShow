@@ -1,0 +1,458 @@
+<style >
+  .modalStyle{
+    border:solid 2px seagreen;
+
+  }
+  body{
+    font-family:futura;
+  }
+  .tabdat:hover{
+    background-color: deepskyblue;
+    color:white;
+  }
+   .tableBack{
+     background-color: deepskyblue;
+     color:white;
+   }
+   #timecolor>li:hover{
+     background-color: mediumseagreen !important;
+   }
+
+</style>
+
+<div class="container-fluid"name="con"
+style="background-color:white;position:relative;padding:0;overflow-x:hidden;margin-left:280px;margin-top:-20px;transition:0.4s;">
+
+<div class="menbod"onclick="openMenu()"style="float:left;margin-left:15px;">
+<div class="MenuIcon">
+
+</div>
+<div class="MenuIcon">
+
+</div><div class="MenuIcon">
+
+</div>
+</div>
+
+<h3 class="dashboard"style="float:left;margin-top:8px;margin-left:5%;">DashBoard</h3>
+<!-- <h4 style="float:right;margin-top:10px;margin-right:5%;">LogOut</h4> -->
+<!--
+
+=================================================================
+
+-->
+<div class="ngng" >
+
+
+<!-- /*<style>
+  td{
+    background-color: white;
+  }
+  th{
+    background-color: white;
+  }
+</style>*/ -->
+
+<div class="container-fluid"style="background-color:whitesmoke;padding-top:30px;padding-left:30px;height:900px">
+<h1 style="font-family:courier new sans;color:crimson; margin-left:20%;">Manage Shows</h1>
+<!-- <a class="btn btn-danger active " style="margin-left:6%;margin-bottom:1%;margin-top:1.5%;"href="#">
+<button class="btn btn-danger"  style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-home"></span>M A P &nbsp M O V I E </button>
+</a>
+<br>
+<br> -->
+
+  <div class="row"style="">
+    <div class="row-md-6"style="max-width:50%;margin-left:20%;">
+
+      <div class="form-group">
+        <label ><b>Movie:</b></label>
+        <!-- <input type="text" id="TName"placeholder="Theatre Name" ng-model="theatreCtrl.TheatreDetails.TheatreName"class="form-control"/> -->
+        <select class="form-control" id="Movie"ng-model="editmoviemappingCtrl.Movie" ng-change="editmoviemappingCtrl.MovieSelected()"data-ng-options="option.Title for option in editmoviemappingCtrl.Movieoptions">
+        <option value="">-Select Movie-</option>
+
+
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="City"><b>City:</b></label>
+
+        <select name="city" class="form-control" id="City"ng-model="editmoviemappingCtrl.City"ng-change="editmoviemappingCtrl.CitySelected()">
+          <option value="">-Select City-</option>
+    <option value="Delhi">Delhi</option>
+    <option value="Faridabad">Faridabad</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Pune">Pune</option>
+    <option value="Kolkata">Kolkata</option>
+  </select>
+
+
+      </div>
+      <br>
+
+      <table class="table table-bordered  table-responsive"style="width:35%;float:left;font-size:18px;"id="local2">
+
+        <tr>
+          <th style="text-align:center;"ng-model="editmoviemappingCtrl.City">All Theatres in {{editmoviemappingCtrl.City}}</th>
+        </tr>
+        <!-- <tr ng-show="!editmoviemappingCtrl.Theatres.length">
+          <td><br><br><br><br><br><br><br><br></td>
+        </tr> -->
+        <tr ng-show="!editmoviemappingCtrl.Theatres.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.Theatres.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.Theatres.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.Theatres.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.Theatres.length">
+          <td><br></td>
+        </tr>
+        <tr ng-repeat="x in editmoviemappingCtrl.Theatres">
+        <!-- <tr> -->
+          <td class="tabdat"id="{{x._id}}"ng-click="editmoviemappingCtrl.selectT(x,$index)">{{x.TheatreName}}:{{x.Locations}}</td>
+
+        </tr>
+
+
+      </table>
+
+      <table class="table table-bordered table-striped table-responsive"style="width:10%;margin-left:90px;font-size:18px;margin-top:40px;float:left;">
+
+        <tr>
+          <td style="text-align:center;background-color:green"> <button class="btn btn-success"style="width:100%;" ng-click="editmoviemappingCtrl.pushRight()"><span style="font-size:19px;"class="glyphicon glyphicon-arrow-right"></span></button> </td>
+        </tr>
+        <tr>
+          <td style="text-align:center;background-color:green"> <button class="btn btn-success"style="width:100%;" ng-click="editmoviemappingCtrl.pushLeft()"><span style="font-size:19px;"class="glyphicon glyphicon-arrow-left"></span></button> </td>
+        </tr>
+        <tr>
+          <td style="text-align:center;background-color:green"> <button class="btn btn-success"style="width:100%;" ng-click=""><span style="font-size:19px;"class="glyphicon glyphicon-forward"></span></button> </td>
+        </tr>
+        <tr>
+          <td style="text-align:center;background-color:green"> <button class="btn btn-success"style="width:100%;" ng-click=""><span style="font-size:19px;"class="glyphicon glyphicon-backward"></span></button> </td>
+        </tr>
+
+      </table>
+
+      <table class="table table-bordered table-responsive"style="width:35%;float:right;font-size:18px;"id="local2">
+        <tr>
+          <th style="text-align:center;">Selected Theatres </th>
+        </tr>
+        <!-- <tr ng-repeat="x in editmoviemappingCtrl.Theatres"> -->
+        <!-- <tr ng-show="!editmoviemappingCtrl.TheatresSelectedFinal.length">
+          <td><br><br><br><br><br><br><br><br></td>
+        </tr> -->
+        <tr ng-show="!editmoviemappingCtrl.TheatresSelectedFinal.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.TheatresSelectedFinal.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.TheatresSelectedFinal.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.TheatresSelectedFinal.length">
+          <td><br></td>
+        </tr>
+        <tr ng-show="!editmoviemappingCtrl.TheatresSelectedFinal.length">
+          <td><br></td>
+        </tr>
+        <tr ng-repeat="x in editmoviemappingCtrl.TheatresSelectedFinal">
+          <td class="tabdat" id="{{$index}}"ng-click="editmoviemappingCtrl.select2T(x,$index)">{{x.TheatreName}}:{{x.Locations}}</td>
+
+        </tr>
+
+
+      </table>
+
+       <!-- <div class="form-group">
+        <button class="btn btn-success" ng-click="theatreCtrl.RegisterUser()">Add</button>
+        <!- - <button class="btn btn-warning" ng-show="theatreCtrl.save"ng-click="theatreCtrl.SaveUser()">Save</button> -
+
+      </div> -->
+
+
+      </div>
+
+
+    </div>
+    <!-- <div class="row">
+      <div class="row-md-6"style="margin-left:20%;">
+        <p>Select Date(s)</p>
+        <ul class="nav nav-pills"ng-repeat="x in editmoviemappingCtrl.Dates"style="float:left;font-size:15px;padding-right:2px;">
+    <li class="active"><a href="#"><span class="glyphicon glyphicon-calendar"></span>{{x}}</a></li>
+    </ul>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="row-md-6"style="margin-left:20%;">
+        <p>Select Date(s)</p>
+        <input type="text" name="" value=""id="DateTime"style="width:10%;float:left;"class="form-control" placeholder=""ng-model="editmoviemappingCtrl.Date">
+        <button class="btn btn-info form-control"style="width:3%;" ng-click="editmoviemappingCtrl.AddDates()"><span style="font-size:19px;padding:0px;"class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+
+   <!-- Displaying Selected Dates HorizontallY -->
+    <br>
+    <div class="row">
+      <div class="row-md-6"style="margin-left:20%;">
+        <ul class="nav nav-pills"ng-repeat="x in editmoviemappingCtrl.Dates"style="float:left;font-size:15px;padding-right:2px;">
+        <li class="active"ng-click="editmoviemappingCtrl.RemoveDates(x)"><a href="#"><span class="glyphicon glyphicon-calendar"></span>{{x}}</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- Time Chooser And Selector -->
+    <br>
+
+    <div class="row">
+      <div class="row-md-6"style="margin-left:20%;">
+        <p>Select Time(s)</p>
+        <input type="text" name="" value=""id="Time"style="width:10%;float:left;"class="form-control" placeholder=""ng-model="editmoviemappingCtrl.Time">
+        <button class="btn btn-info form-control"style="width:3%;" ng-click="editmoviemappingCtrl.AddTimes()"><span style="font-size:19px;padding:0px;"class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+
+   <!-- Displaying Selected Times HorizontallY -->
+    <br>
+    <div class="row">
+      <div class="row-md-6"style="margin-left:20%;">
+        <ul class="nav nav-pills"ng-repeat="x in editmoviemappingCtrl.Times"style="float:left;font-size:15px;padding-right:2px;"id="timecolor">
+        <!-- <li class="label-success"ng-click="editmoviemappingCtrl.RemoveTimes(x)"><a href="#"style="color:white"><span class="glyphicon glyphicon-time"></span>{{x}}</a></li> -->
+        <li><button type="button"class="btn btn-success" name="button"ng-click="editmoviemappingCtrl.RemoveTimes(x)"><span class="glyphicon glyphicon-time"></span>{{x}}</button></li>
+        </ul>
+
+      </div>
+      <div class="row-md-6"style="margin-right:30%;float:right;">
+        <p ng-show="editmoviemappingCtrl.Eror"style="color:tomato;">Please Fill all details correctly</p>
+        <button type="button"class="btn btn-success" name="button"ng-click="editmoviemappingCtrl.Save()"style="">
+          <span style="font-size:19px;"class="glyphicon glyphicon-floppy-disk"></span>&nbsp S A V E</button>
+
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <!- - <div class="row-md-6"style="margin-right:30%;">
+        <button type="button"class="btn btn-success" name="button"ng-click=""style="float:right;">
+          <span style="font-size:19px;"class="glyphicon glyphicon-floppy-disk"></span>&nbsp S A V E</button>
+
+      </div> - - >
+    </div> -->
+
+
+
+
+  </div>
+
+</div><!--ngngngn  -->
+
+<!-- - -></br></br> -->
+</br></br>
+
+</div>
+
+<div id="topmo"class="topMovies"style="border:3px solid white;overflow-y:scroll;top:0;transition:0.4s;width:280px;">
+
+  <center>
+  <!-- <b><h4 style="color:white;margin-top:15px;font-family:sans-serif;">BOOK MY MOVIE</h4></b> -->
+
+
+</br>
+  <div class="closeMen"onclick="openMenu()"style="margin-top:4px;margin-left:0;">
+    <div class="MenuIcon"style="transform:rotate(-45deg) translate(-9px,4px);background-color:white;">
+
+    </div>
+    <div class="MenuIcon"style="transform:rotate(45deg);background-color:white;opacity:0;">
+
+    </div>
+    <div class="MenuIcon"style="transform:rotate(45deg) translate(-8px,-4px);background-color:white;">
+
+    </div>
+  </div>
+  <!-- <div class="horiLine"style="width:100%;border:solid 0.6px white !important;border-color:white;">
+  </div> -->
+  </center>
+
+
+ </br>
+
+  <!-- <div class="list-group"id="lgtr" onclick="openMenu()"style="transition: 1.8s;width:0%;">
+    <a href="#"  class="list-group-item active"><span class="glyphicon glyphicon-home"></span> DASHBOARD</a></br>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-film"></span>  THEATRES</a></br>
+    <a href="#/movies" class="list-group-item"><span class="glyphicon glyphicon-play"></span>  MOVIES</a></br>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-th"></span> MANAGE SHOWS</a></br>
+    <a href="#"class="list-group-item">ADD SHOW TIMINGS</a></br>
+
+  </div> -->
+  <div class="btn-group-vertical"style="width:100%;"onclick="openMenu()">
+    <a class="btn btn-danger active " style=""href="/admin">
+    <button class="btn btn-danger"  style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-home"></span>DASHBOARD </button>
+    </a>
+  </br>
+    <a class="btn btn-danger active"href="/theatre">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-film"></span>THEATRES </button>
+    </a>
+  </br>
+    <a class="btn btn-danger active"href="/movies">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-play"></span>MOVIES </button>
+    </a>
+    </br>
+    <a class="btn btn-danger active"href="/mapmovie">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-random"></span>&nbspMAP MOVIE</button>
+    </a>
+    <br>
+    <a class="btn btn-danger active"href="/editmoviemapping">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
+    </a>
+    </br>
+    <!-- <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
+    </a>
+    </br>
+    <a class="btn btn-danger active"href="#">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;">ADD SHOW TIMINGS </button>
+    </a> -->
+  </div>
+
+</div>
+<!-- MOdal for Editing  fddddkdkdkadkdkdkda a..aaa.aaaaaaaa -->
+  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+<!-- <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!- - Modal content- ->
+      <div class="modal-content">
+        <div class="modal-header"style="background-color:white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Theatre</h4>
+        </div>
+        <!- -Modal Body  - ->
+        <div class="modal-body"style="background-color:whitesmoke">
+          <div class="form-group">
+            <label for="TheatreName"><b style="color:seagreen;">Theatre Name:</b></label>
+            <input type="text" id="TName"placeholder="Theatre Name" ng-model="theatreCtrl.TheatreDetails.TheatreNameModal"class="form-control modalStyle"/>
+          </div>
+
+          <div class="form-group">
+            <label for="State"><b style="color:seagreen;">State:</b></label>
+
+            <select name="state" class="form-control modalStyle" id="State"ng-model="theatreCtrl.TheatreDetails.StateModal">
+              <option value="Delhi">Delhi</option>
+
+        <option value="Haryana">Haryana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Goa">Goa</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="AndhraPradesh">AndhraPradesh</option>
+      </select>
+
+          </div>
+          <div class="form-group">
+            <label for="City"><b style="color:seagreen;">City:</b></label>
+
+            <select name="city" class="form-control modalStyle" id="City"ng-model="theatreCtrl.TheatreDetails.CityModal">
+        <option value="Delhi">Delhi</option>
+        <option value="Faridabad">Faridabad</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Pune">Pune</option>
+        <option value="Kolkata">Kolkata</option>
+      </select>
+
+
+          </div>
+          <div class="form-group">
+            <label for="Seats"><b style="color:seagreen;">Address:</b></label>
+            <input type="text" placeholder="G-25,SouthEx-I,New Delhi-110065" id="Seats"ng-model="theatreCtrl.TheatreDetails.LocationsModal"class="form-control modalStyle"/>
+          </div>
+           <div class="form-group">
+            <!- - <button class="btn btn-success" ng-show="theatreCtrl.add"ng-click="theatreCtrl.RegisterUser()">Add</button> - ->
+            <button class="btn btn-warning" ng-show="theatreCtrl.save"ng-click="theatreCtrl.SaveUser()"data-dismiss="modal">Save</button>
+
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+
+<script >
+
+$(document).ready(function () {
+  setTimeout(function() {
+         openMenu();
+    }, 100);
+  //  $('#DateTime').bootstrapMaterialDatePicker();
+  //https://github.com/T00rk/bootstrap-material-datetimepicker
+  $('#DateTime').bootstrapMaterialDatePicker({
+    format : 'DD/MM/YYYY',
+    time:false,
+    minDate : new Date()
+   });
+
+   $('#Time').bootstrapMaterialDatePicker({
+    //  format : 'HH:mm',
+    format : 'hh:mm a',
+     date:false
+
+    });
+  // $('#DateTime').bootstrapMaterialDatePicker({time:false,minDate:new Date() });
+
+
+});
+function openMenu()
+{
+
+
+var con=document.getElementsByName('con');
+var menu=document.getElementsByClassName('topMovies');
+// var list=document.getElementById('lgtr');
+//var mb=document.getElementsByClassName('menbod');
+//var tb=document.getElementsByClassName('TopBarr');
+//var db=document.getElementsByClassName('dashboard');
+//tb[0].style.marginLeft=tb[0].style.marginLeft==='0%'?'20%':'0%';
+//tb[0].style.width=tb[0].style.width==='100%'?'80%':'100%';
+//db[0].style.marginLeft=db[0].style.marginLeft==='70px'?'15px':'70px';
+//con[0].style.marginLeft=con[0].style.marginLeft==='280px'?'0px':'280px';
+
+//menu[0].style.width=menu[0].style.width==='250px'?'0':'250px';
+//db[0].style.zIndex=db[0].style.zIndex==='-15'?'15':'-15';
+//mb[0].style.opacity=mb[0].style.opacity==='0'?'1':'0';
+con[0].style.marginLeft=con[0].style.marginLeft==='280px'?'0':'280px';
+
+ menu[0].style.width=menu[0].style.width==='280px'?'0px':'280px';
+ // list.style.width=list.style.width==='0%'?'100%':'0%';
+//  menu[0].style.height=menu[0].style.height==='100%'?'0%':'100%';
+// con[0].style.marginLeft=con[0].style.marginLeft==='20%'?'0':'20%';
+
+
+/*if(parseInt(window.innerWidth)<600){
+  db[0].style.opacity=db[0].style.opacity==='1'?'0':'1';
+}
+else {
+  db[0].style.opacity='1';
+}*/
+
+
+}
+
+
+
+
+
+
+
+</script>

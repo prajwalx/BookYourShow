@@ -3,10 +3,11 @@
 (function() {
 
   class MoviesComponent {
-    constructor($http, $scope, socket) {
+    constructor($http, $scope, socket,$rootScope) {
       this.$http = $http;
       this.socket = socket;
       this.$scope = $scope;
+      this.$rootScope = $rootScope;
 
       this.MovieData = [];
 
@@ -25,7 +26,7 @@
           this.MovieYear="";
           this.LocalDB=true;
 
-
+         this.$rootScope.IndexBar=true;
         this.socket.syncUpdates('moviesendpoint', this.MovieData);
       });
     }
@@ -80,7 +81,7 @@
         this.$http.delete('/api/moviesendpoints/' + Movie._id);
       }
       console.log('Movie removed');
-      
+
     }
 
 

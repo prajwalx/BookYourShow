@@ -33,6 +33,12 @@
     </div>
   </div>
 </div> -->
+<style >
+  .modalStyle{
+    border:solid 2px seagreen;
+
+  }
+</style>
 
 <div class="container-fluid"name="con"
 style="background-color:white;position:relative;padding:0;overflow-x:hidden;margin-left:280px;margin-top:-20px;transition:0.4s;">
@@ -111,7 +117,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
       </div>
        <div class="form-group">
         <button class="btn btn-success" ng-show="theatreCtrl.add"ng-click="theatreCtrl.RegisterUser()">Add</button>
-        <button class="btn btn-warning" ng-show="theatreCtrl.save"ng-click="theatreCtrl.SaveUser()">Save</button>
+        <!-- <button class="btn btn-warning" ng-show="theatreCtrl.save"ng-click="theatreCtrl.SaveUser()">Save</button> -->
 
       </div>
       </div>
@@ -120,7 +126,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
 
     <div class="row"style="overflow-x:scroll;">
       <div class="row-md-6"style="border:solid 2px whitesmoke;">
-        <table id="local2"class="table table-bordered"style="background-color:white;border:solid 2px gainsboro">
+        <table id="local2"class="table table-bordered table-striped"style="background-color:white;border:solid 2px gainsboro">
           <tr>
             <th>Theatre</br> Name</th>
             <th>State</th>
@@ -135,7 +141,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
             <td>{{x.City}}</td>
 
             <td>{{x.Locations}}</td>
-            <td><button class="btn btn-warning" ng-click="theatreCtrl.GetUser(x)"><span class="glyphicon glyphicon-edit"></span></button></td>
+            <td><button class="btn btn-warning" data-toggle="modal" data-target="#myModal"ng-click="theatreCtrl.GetUser(x)"><span class="glyphicon glyphicon-edit"></span></button></td>
             <td ><button class="btn btn-danger" ng-click="theatreCtrl.DeleteUser(x)"><span class="glyphicon glyphicon-trash"></span></button></td>
 
           </tr>
@@ -189,7 +195,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
 
   </div> -->
   <div class="btn-group-vertical"style="width:100%;"onclick="openMenu()">
-    <a class="btn btn-danger active " style=""href="#">
+    <a class="btn btn-danger active " style=""href="/admin">
     <button class="btn btn-danger"  style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-home"></span>DASHBOARD </button>
     </a>
   </br>
@@ -201,16 +207,89 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
     <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-play"></span>MOVIES </button>
     </a>
     </br>
-    <a class="btn btn-danger active"href="#">
+    <!-- <a class="btn btn-danger active"href="#">
     <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
     </a>
     </br>
     <a class="btn btn-danger active"href="#">
     <button class="btn btn-danger" style="width:inherit;text-align:left;">ADD SHOW TIMINGS </button>
+    </a> -->
+    <a class="btn btn-danger active"href="/mapmovie">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-random"></span>&nbspMAP MOVIE</button>
     </a>
+    <br>
+    <a class="btn btn-danger active"href="/editmoviemapping">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
+    </a>
+    </br>
   </div>
 
 </div>
+<!-- MOdal for Editing  fddddkdkdkadkdkdkda a..aaa.aaaaaaaa -->
+  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header"style="background-color:white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Theatre</h4>
+        </div>
+        <!--Modal Body  -->
+        <div class="modal-body"style="background-color:whitesmoke">
+          <div class="form-group">
+            <label for="TheatreName"><b style="color:seagreen;">Theatre Name:</b></label>
+            <input type="text" id="TName"placeholder="Theatre Name" ng-model="theatreCtrl.TheatreDetails.TheatreNameModal"class="form-control modalStyle"/>
+          </div>
+
+          <div class="form-group">
+            <label for="State"><b style="color:seagreen;">State:</b></label>
+
+            <select name="state" class="form-control modalStyle" id="State"ng-model="theatreCtrl.TheatreDetails.StateModal">
+              <option value="Delhi">Delhi</option>
+
+        <option value="Haryana">Haryana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Goa">Goa</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="AndhraPradesh">AndhraPradesh</option>
+      </select>
+
+          </div>
+          <div class="form-group">
+            <label for="City"><b style="color:seagreen;">City:</b></label>
+
+            <select name="city" class="form-control modalStyle" id="City"ng-model="theatreCtrl.TheatreDetails.CityModal">
+        <option value="Delhi">Delhi</option>
+        <option value="Faridabad">Faridabad</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Pune">Pune</option>
+        <option value="Kolkata">Kolkata</option>
+      </select>
+
+
+          </div>
+          <div class="form-group">
+            <label for="Seats"><b style="color:seagreen;">Address:</b></label>
+            <input type="text" placeholder="G-25,SouthEx-I,New Delhi-110065" id="Seats"ng-model="theatreCtrl.TheatreDetails.LocationsModal"class="form-control modalStyle"/>
+          </div>
+           <div class="form-group">
+            <!-- <button class="btn btn-success" ng-show="theatreCtrl.add"ng-click="theatreCtrl.RegisterUser()">Add</button> -->
+            <button class="btn btn-warning" ng-show="theatreCtrl.save"ng-click="theatreCtrl.SaveUser()"data-dismiss="modal">Save</button>
+
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 <script >
 

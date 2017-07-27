@@ -9,11 +9,14 @@
         <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
     </li>
   </ul>
-</div> -->
-<body >
+</div>
+
+Correct One With Graph-##########################################
+-->
 
 
-<div class="container-fluid"name="con"ng-controller="AdminController"
+
+<div class="container-fluid"name="con"
 style="background-color:white;position:relative;padding:0;overflow-x:hidden;margin-left:0px;margin-top:-20px;transition:0.4s;">
 
 <div class="menbod"onclick="openMenu()"style="float:left;margin-left:15px;">
@@ -34,6 +37,50 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
 =================================================================
 
 -->
+<div class="ngng">
+  <div class="container-fluid"style="background-color:whitesmoke;padding-top:30px;padding-left:30px;height:900px">
+<br><br><br><br>
+    <div class=""style="width:350px;background-color:white;margin-left:8%;border-radius:5%;border:solid 2px crimson;float:left;">
+      <center>
+      <p>T O P  M O V I E S</P>
+        <div class="horiLine">
+        </div><br>
+      </center>
+      <ul class="list-group"style="">
+        <!-- <li class="list-group-item"ng-repeat="r in homeCtrl.RatingData | orderBy:'-Rating'"><span class="heart"style="font-size:20px;"></span> -->
+          <!-- &nbsp&nbsp&nbsp{{r.Rating}}% &nbsp -->
+          <!-- <span style="text-align:left;margin-left:50px;font-weight:bold;">{{r.Movie}}</span></li> -->
+        <li class="list-group-item"ng-repeat="r in admin.RatingData | orderBy:'-Rating'"><span class="heart"></span>
+          &nbsp&nbsp&nbsp{{r.Rating}}% &nbsp
+        <span style="text-align:left;margin-left:50px;font-weight:bold;">{{r.Movie}}</span></li>
+        <!-- <li class="list-group-item"ng-bind="AdminController.RatingData[0].Movie"><span class="heart"></span>{{admin.RatingData}} </li>
+        <li class="list-group-item"><span class="heart"></span> 52% Zindagi</li>
+        <li class="list-group-item"><span class="heart"></span> 40% Zindagi</li>
+        <li class="list-group-item"><span class="heart"></span> 30% Zindagi</li>
+        <li class="list-group-item"><span class="heart"></span> 29% Zindagi</li> -->
+      </ul>
+
+    </div>
+    <div class=""style="width:670px;float:left;margin-left:10%;">
+      <canvas id="bar" class="chart chart-bar"
+    chart-data="admin.data" chart-labels="admin.labels" chart-series="admin.series">
+  </canvas>
+    </div>
+
+
+    <!-- <div class="">
+      <table class="table table-responsive table-striped">
+        <tr>
+
+        </tr>
+
+      </table>
+
+    </div> -->
+
+  </div>
+
+</div>
 
 <!-- - -></br></br> -->
 </br></br>
@@ -79,6 +126,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
     </a>
   </br>
     <a class="btn btn-danger active"href="/theatre">
+      <!--  /theatre-->
     <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-film"></span>THEATRES </button>
     </a>
   </br>
@@ -86,13 +134,15 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
     <button class="btn btn-danger" onclick="Load('M')"style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-play"></span>MOVIES </button>
     </a>
     </br>
-    <a class="btn btn-danger active"href="#">
+    <a class="btn btn-danger active"href="/mapmovie">
+    <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-random"></span>&nbspMAP MOVIE</button>
+    </a>
+    <br>
+    <a class="btn btn-danger active"href="/editmoviemapping">
     <button class="btn btn-danger" style="width:inherit;text-align:left;"><span class="glyphicon glyphicon-th"></span>MANAGE SHOWS </button>
     </a>
     </br>
-    <a class="btn btn-danger active"href="#">
-    <button class="btn btn-danger" style="width:inherit;text-align:left;">ADD SHOW TIMINGS </button>
-    </a>
+
   </div>
 
 </div>
@@ -105,6 +155,16 @@ $(document).ready(function () {
     }, 100);
 
 });
+function loadHTML(x) {
+  switch (x) {
+    case 'T':
+      document.getElementById('lodHERE').innerHTML='<object type="text/html" width="100%" height="100%" data="app/admin/views/theatres.html" ></object>';
+      break;
+    default:
+
+  }
+
+}
 function openMenu()
 {
 
@@ -148,4 +208,3 @@ else {
 
 
 </script>
-</body>

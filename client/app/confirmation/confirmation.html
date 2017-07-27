@@ -1,0 +1,410 @@
+<nav class="navbar navbar-inverse"id="BookingTopBar"style="height:90px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/home"style="margin-left:50px;">
+        <!-- <span class="glyphicon glyphicon-film"style="font-size:23px;margin-top:15px;float:left;"> </span> -->
+        <div class=""style="margin-left:30px;margin-top:10px;font-weight:normal;font-family:comic sans ms;font-size:28px;color:white;">
+          <span >book </span>
+          <span style="display:inline-block;transform: rotate(-8deg);border-radius:20%;background-color:crimson;border:solid white 3px;padding:7px;color:white;"> your</span>
+           <span style="margin-top:12px;"> show</span>
+
+        </div>
+      </a>
+    </div>
+
+
+    <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+  </div>
+</nav>
+<div class="container"style="background-color:white;min-height:800px;">
+
+  <div class="panel panel-success"style="">
+  <div class="panel-heading"> <h3 style=""> <span class="glyphicon glyphicon-ok"></span>&nbsp Thank You For Your Purchase</div></h3 >
+
+</div>
+<div class=""style="width:70%;background-color:whitesmoke;height:350px;float:left;border:solid 4px gainsboro">
+<img src="{{confirmationCtrl.Movie.Poster}}" alt=""style="max-width:100%;max-height:100%;float:left;">
+<div class=""style="margin-left:2%;padding-top:5px;color:grey;float:left;">
+
+  <h3 style="color:dimgrey">{{confirmationCtrl.Movie.Title}}</h3><br>
+  <h5 style="color:grey;font-size:17.5px;">{{confirmationCtrl.Ticket.TheatreName}}:{{confirmationCtrl.Ticket.TheatreLocation}}</h5><br>
+  <h5 >{{confirmationCtrl.t}}&nbsp|&nbsp{{confirmationCtrl.d}}</h5><br>
+  <h5 style="color:dimgrey;font-size:18px">Quantity:{{confirmationCtrl.Ticket.SeatIDs.length}}</h5><br>
+  <h4 style="color:green;float:left;">G O L D :&nbsp</h4>
+  <h4 style="color:green;float:left"ng-repeat="id in confirmationCtrl.Ticket.SeatIDs">{{id}},&nbsp</h4><br><br>
+  <h3 style="color:dimgrey;margin-top:15;">Amount Paid : Rs.&nbsp{{confirmationCtrl.Summary.price}}</h3>
+</div>
+
+<div class=""style="float:right;width:25%;">
+<img src="../assets/images/QR_code_for_mobile_English_Wikipedia.svg.png" alt=""style="max-width:100%;max-height:100%;">
+<h4 style="color:dimgrey;float:left;margin-left:20%;">Booking ID:</h4>
+<h4 style="color:black;float:left;margin-left:20%;font-size:20px"><u>AB3PR2AJ</u></h4>
+</div>
+</div>
+
+<div class=""style="width:28%;background-color:whitesmoke;float:right;padding:15px;border:solid 4px gainsboro">
+    <br>
+  <h5 style="color:grey;font-size:16px"><u>Booking Date:</u><span style="color:dimgrey">&nbsp {{confirmationCtrl.cur}}</span></h5><br>
+  <h5 style="color:grey;font-size:16px"><u>Booking Time:</u><span style="color:dimgrey">&nbsp {{confirmationCtrl.ti}}</span></h5><br>
+  <h5 style="color:grey;font-size:16px">Payment Method: <span style="color:dimgrey">Credit Card</span></h5><br>
+  <h5 style="color:grey;font-size:16px">Confirmation Number: <span style="color:dimgrey">115211146</span></h5><br>
+</div>
+
+<div class=""style="width:28%;height:400px;border:solid 2px white;float:right;margin-top:20px;">
+
+  <img src="../assets/images/mr_porter.gif" alt=""style="max-width:100%;max-height:100%">
+</div>
+
+<div class=""style=";height:500px;border:solid 2px white;margin-top:420px;">
+
+  <img src="../assets/images/ann_taylor_loft.gif" alt=""style="max-width:100%;max-height:100%">
+</div>
+<!-- <div style="float:left;">
+
+
+  <div class="container"style="border:solid 2px mediumseagreen;width:950px;background-color:white;height:170px;margin-top:20px;margin-left:95px;padding:0;">
+    <div style="width:100%;background-color:mediumseagreen;color:white;font-size:20px;height:30%;">
+       <span class="glyphicon glyphicon-chevron-down"style="display:inline-block;float:left;padding-left:20px;padding-top:10px;"></span>
+      <h4 style="margin:0;padding-top:10px;padding-left:60px;">Share your Contact Details</h4>
+
+      <form class="form-inline "style="margin-top:50px;margin-left:40px;" >
+         <div class="form-group"id="emailAndNumber"style="width:100%;">  <!- -has-success has-feedback - ->
+          <input type="text" id="email"class="form-control "ng-model="paymentCtrl.Ticket.Email"placeholder="EMAIL ADDRESS"style="width:30%;height:45px;">
+
+          <!- - <span style="margin-right:70%;margin-top:5px;"class="glyphicon glyphicon-ok form-control-feedback "></span> - ->
+          <input type="text" id="mob"class="form-control"ng-model="paymentCtrl.Ticket.Phone"placeholder="Mobile No."maxlength="13"ng-init="paymentCtrl.Ticket.Phone='+91'"style="width:31%;height:45px;">
+          <!- - <span style="margin-right:38.5%;margin-top:5px;"class="glyphicon glyphicon-ok form-control-feedback "></span> - ->
+          <input type="button" name="" value="CONTINUE"class="btn btn-danger"style="width:20%;height:45px;"onclick="CheckEmailAndPhone()">
+
+
+        </div>
+        <div class=""id="HelpLabel">
+          <p class="help"style="color:black;font-size:14px;color:green"><span></span></p>
+
+        </div>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="container"style="border:solid 2px mediumseagreen;width:950px;background-color:white;min-height:470px;margin-top:20px;margin-left:95px;padding:0;">
+    <div style="width:100%;background-color:mediumseagreen;color:white;font-size:20px;height:45px;">
+       <span class="glyphicon glyphicon-chevron-down"style="display:inline-block;float:left;padding-left:20px;padding-top:10px;"></span>
+      <h4 style="margin:0;padding-top:10px;padding-left:60px;">Payment Details</h4>
+
+    </div>
+
+    <h4 style="color:darkgreen;margin-left:90px;">Enter Your Card Details</h4><br>
+
+    <form class="form"style="margin-left:90px;font-family:courier new" >
+      <div class="form-group "id="card"style="width:60%;background:linear-gradient(-70deg,silver,whitesmoke,lightgrey);min-height:250px;border-radius:3%;border:solid 1px whitesmoke;">
+         <label for=""style="font-weightnormal;margin-left:10.4%;color:grey;padding-top:5px;">CARD NUMBER</label>
+        <input type="text" class="form-control"id="cardNum"placeholder="ENTER YOUR CARD NUMBER"maxlength="16"style="margin-left:10%;width:65%;height:35px;">
+        <label for=""></label>
+        <input type="text" class="form-control"id="name"placeholder="NAME ON THE CARD"style="margin-left:10%;width:65%;height:35px;">
+         <!- - <label for=""style="font-weightnormal;margin-left:10.4%;color:grey;padding-top:5px;">EXPIRY</label> - ->
+         <p style="font-weightnormal;margin-left:10.4%;color:grey;padding-top:15px;padding-bottom:2px;margin-bottom:0;float:left;">EXPIRY</p>
+         <p style="font-weightnormal;margin-left:60.4%;color:grey;padding-top:15px;padding-bottom:2px;margin-bottom:0;">CVV</p>
+         <input type="text" class="form-control"id="mm"placeholder="MM"maxlength="2"style="margin-left:10%;width:10%;height:35px;float:left;">
+         <input type="text" class="form-control"id="yy"placeholder="YY"maxlength="2"style="margin-left:2%;width:10%;height:35px;float:left;">
+         <input type="text" class="form-control"id="cvv"placeholder="CVV"maxlength="4"style="margin-left:88%;width:11%;height:35px;">
+      </div>
+    </form>
+    <!- - <input type="button" name="" value="P A Y  &nbsp N O W"class="btn btn-danger"style="width:20%;height:45px;margin-left:90px;"> - ->
+    <div class=""id="HelpLabel2">
+      <p class="help"style="color:black;font-size:14px;color:green"><span></span></p>
+
+    </div>
+    <a class="btn btn-danger active"href="#" style="width:20%;margin-left:90px;float:left;">
+   <button class="btn btn-danger"id="payNowButton" style="width:100%;text-align:center;"onclick="CheckCard()">P A Y &nbsp N O W
+
+   </button>
+   </a>
+   <br>
+   <br>
+   <br>
+   <p style="margin-left:90px;float:left;font-size:12px;color:dimgray;">By clicking "Pay Now" you agree to the &nbsp<a href="https://in.bookmyshow.com/terms-and-conditions"target="blank" style="float:right">terms and conditions</a></p>
+  </div>
+
+</div> -->
+
+<!--
+  <div class="container"style="padding:20px;border:solid 3px gainsboro;background-color:white;width:450px;min-height:470px;float:right;margin-right:120px;margin-top:20px;padding-bottom:0px;">
+    <div class="row"style="">
+      <!- - <div class="col-md-6"> - ->
+
+
+        <br>
+        <h4 style="color:crimson;font-weight:normal;padding-left:30px;">ORDER SUMMARY</h4><br>
+        <table class="table table-responsive "style="font-size:20px;font-weight:normal;">
+          <tr>
+            <td style="border-bottom:none;font-size:25px">{{paymentCtrl.Ticket.MovieName}}&nbsp (U/A)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td style="font-size:15px;border:none;padding:2px;color:grey">&nbsp Hindi, 2D </td>
+          </tr>
+          <tr>
+            <td colspan="2"style="font-size:15px;border:none;padding:2px;color:grey;"
+            >&nbsp {{paymentCtrl.Ticket.TheatreName}}:{{paymentCtrl.Ticket.TheatreLocation}} </td>
+          </tr>
+          <tr>
+            <td colspan="2"style="padding:2px;padding-right:40px; text-align:right;font-size:28px;border:none;color:black;"
+            >&nbsp {{paymentCtrl.Ticket.SeatIDs.length}} </td>
+          </tr>
+          <tr>
+            <td colspan="2"style="text-align:right;padding:2px;padding-right:25px;font-size:18px;border:none;color:black;">
+              <span style="color:grey;text-align:left;">M-Ticket &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+              </span> Tickets </td>
+          </tr>
+
+          <tr>
+            <td colspan="2"style="padding:2px;padding-left:10px;font-size:15px;border:none;color:grey;"
+            >{{paymentCtrl.d}}</td>
+          </tr>
+          <tr>
+            <td colspan="2"style="padding:2px;padding-left:10px;font-size:15px;border:none;color:grey;"
+            >{{paymentCtrl.t}}</td>
+          </tr>
+          <tr>
+            <th style="border-bottom:none;"ng-model="paymentCtrl.Summary.Tclass">{{paymentCtrl.Summary.Tclass}}</th>
+
+
+            <td style="text-align:right;padding-left:150px;border-bottom:none;font-size:17px;"ng-model="paymentCtrl.Summary.price">{{paymentCtrl.Summary.price}}.00</td>
+          </tr>
+
+           <tr ng-repeat="x in paymentCtrl.seatsBooked"style="float:left;display:inline-block;">
+             <td style="font-size:14px;border:none;padding:2px;">{{x}} , </td>
+           </tr>
+          <tr>
+
+            <th style="font-size:14px;border:none;">Internet Handling</th>
+
+
+            <td style="text-align:right;padding-left:150px;border:none;font-size:17px;"ng-model="paymentCtrl.Summary.InternetHandling">{{paymentCtrl.Summary.InternetHandling}}.00</td>
+          </tr>
+
+          <tr>
+            <th style="font-size:14px;border-top:solid 4px whitesmoke">SubTotal:</th>
+
+
+            <td style="text-align:right;padding-left:150px;border-top:solid 4px whitesmoke"ng-model="paymentCtrl.Summary.SubT">{{paymentCtrl.Summary.SubT}}.00</td>
+          </tr>
+
+          <tr style="background-color:lightgoldenrodyellow;">
+            <th style="font-size:14px;border-top:solid 4px whitesmoke;">Amount Payable</th>
+            <th style="text-align:right;padding-left:150px;border-top:solid 4px whitesmoke"ng-model="paymentCtrl.Summary.SubT">Rs.{{paymentCtrl.Summary.SubT}}.00</th>
+          </tr>
+
+        </table>
+
+        <!- - <a class="btn btn-danger active"href="#" style="width:100%;margin-top:150px;">
+        <button class="btn btn-danger" style="width:inherit;text-align:left;"ng-model="paymentCtrl.Summary.SubT">TOTAL: Rs.{{paymentCtrl.Summary.SubT}}.00
+          <span style="margin-left:250px;">PROCEED</span>
+        </button>
+        </a> - ->
+
+         <!- - <a class="btn btn-danger active"href="#" style="width:100%;margin-top:150px;">
+        <button class="btn btn-danger" style="width:inherit;text-align:center;">P A Y &nbsp N O W
+
+        </button>
+        </a> - ->
+      </div>
+
+      </div> -->
+
+      <!-- <div class="container"style="float:right;margin-right:160px;margin-top:20px;width:300px;color:grey"ng-model="paymentCtrl.ip">
+        <p>Your IP Address:<b>{{paymentCtrl.ip}}<b></p>
+      </div>
+
+
+
+      <div class="" style="float:left;margin-left:96px;margin-top:20px;font-size:13px;color:darkgray">
+        <p>Note:<br>
+         1. Registrations/Tickets once booked cannot be exchanged, cancelled or refunded.<br>
+         2. In case of Credit/Debit Card bookings, the Credit/Debit Card and Card holder must be present at the ticket counter while collecting the ticket(s).
+  </p>
+
+      </div> -->
+</div>
+
+<!-- <script type="text/javascript">
+  function CheckEmailAndPhone() {
+    var mob=document.getElementById('mob').value.trim();
+    var em=document.getElementById('email').value.trim();
+    var cl=document.getElementById('emailAndNumber').classList;
+    var re = /\S+@\S+\.\S+/;//Email Tester Stack OverFlow
+    console.log(mob);
+    console.log(em);
+
+    if(cl.contains("has-success"))//FOr Green or red Backgrounds oon Input Control
+    cl.remove("has-success");
+    if(cl.contains("has-error"))
+    cl.remove("has-error");
+    document.getElementById('HelpLabel').innerHTML='';
+    console.log(mob.substr(3,11));
+
+
+    if (re.test(em)) {
+      if(mob.length!=13){
+        document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:280px;"><span>Please enter a valid Mobile Number.</span></p>';
+
+        // cl.className+='has-error';
+        cl.toggle("has-error");
+        console.log('Invalid Mob');
+        return(false);
+      }
+      else if  (isNaN(+(mob.substr(3, 11)) ) ) {
+  // Is a Not a number
+  console.log('Control NAN');
+  document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:280px;"><span>Please enter a valid Mobile Number.</span></p>';
+
+  // cl.className+='has-error';
+  cl.toggle("has-error");
+  console.log('Invalid Mob');
+  return(false);
+
+
+      }
+      else{
+        document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:green;margin-left:5px;"><span>Tickets will be sent to above email address and mobile number.</span></p>';
+        //cl.className-='has-error';
+        //cl.className+='has-success';
+        cl.toggle("has-success");
+        return(true);
+      }
+
+
+    }
+
+
+    else {
+      document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:5px;"><span>Please enter a valid Email Address.</span></p>';
+      cl.toggle("has-error");
+      return(false);
+      // cl.className+='has-error';
+    }
+
+  }
+
+  function CheckCard() {
+    var cardnum=document.getElementById('cardNum').value.trim();
+   var name=document.getElementById('name').value.trim();
+   var mm=document.getElementById('mm').value.trim();
+   var yy=document.getElementById('yy').value.trim();
+   var cvv=document.getElementById('cvv').value.trim();
+   var cl=document.getElementById('card').classList;
+   var msg=document.getElementById('HelpLabel2');
+
+   console.log(cardnum);
+   console.log(name);
+   console.log(mm);
+   console.log(yy);
+   console.log(cvv);
+
+   msg.innerHTML=''
+   if(cl.contains("has-success"))//FOr Green or red Backgrounds oon Input Control
+   cl.remove("has-success");
+   if(cl.contains("has-error"))
+   cl.remove("has-error");
+
+
+    if(CheckEmailAndPhone()){
+
+      if((cardnum.length!=16)|| (isNaN(+cardnum )) )
+      {
+        msg.innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:95px;"><span>Please enter valid Card Number.</span></p>';
+        cl.toggle("has-error");
+        console.log('err in cardnum');
+      }
+      else if ((mm.length!=2)|| (isNaN(+mm ))) {
+        msg.innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:95px;"><span>Please enter valid Month.</span></p>';
+        cl.toggle("has-error");
+        console.log('err in mm');
+
+      }
+      else if ((yy.length!=2)|| (isNaN(+yy ))|| ((+yy)<17 ) ) {
+        msg.innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:95px;"><span>Please enter valid Year.</span></p>';
+        cl.toggle("has-error");
+        console.log('err in yy');
+
+      }
+      else if ((cvv.length<3)|| (isNaN(+cvv ))) {
+        msg.innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:95px;"><span>Please enter valid CVV.</span></p>';
+        cl.toggle("has-error");
+        console.log('err in cvv');
+
+      }
+      else {
+        cl.toggle("has-success");
+        msg.innerHTML='<p class="help"style="font-size:14px;color:green;margin-left:95px;"><span>:)</span></p>';
+        console.log('no error');
+        $(document).ready(function () {
+          angular.element('#payNowButton').scope().paymentCtrl.PayNow();//GOing to Controller
+          angular.element('#payNowButton').scope().$apply();
+        });
+
+      }
+//||(isNaN(+cvv))||(isNaN(+mm))||(isNaN(+yy)) )
+
+    // console.log('Mobile And Email Correct Now Proceeding');
+
+     }
+    else{
+      msg.innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:95px;"><span>Please enter valid Contact Details.</span></p>';
+      console.log('err in Contact');
+
+    }
+
+    // var mob=document.getElementById('mob').value;
+    // var em=document.getElementById('email').value;
+    // var cl=document.getElementById('emailAndNumber').classList;
+    // var re = /\S+@\S+\.\S+/;//Email Tester Stack OverFlow
+    // console.log(mob);
+    // console.log(em);
+    //
+    // if(cl.contains("has-success"))//FOr Green or red Backgrounds oon Input Control
+    // cl.remove("has-success");
+    // if(cl.contains("has-error"))
+    // cl.remove("has-error");
+    // document.getElementById('HelpLabel').innerHTML='';
+    //
+    //
+    // if (re.test(em)) {
+    //   if(mob.length!=13){
+    //     document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:280px;"><span>Please enter a valid Mobile Number.</span></p>';
+    //
+    //     // cl.className+='has-error';
+    //     cl.toggle("has-error");
+    //     console.log('Invalid Mob');
+    //     return(false);
+    //   }
+    //   else{
+    //     document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:green;margin-left:5px;"><span>Tickets will be sent to above email address and mobile number.</span></p>';
+    //     //cl.className-='has-error';
+    //     //cl.className+='has-success';
+    //     cl.toggle("has-success");
+    //     return(true);
+    //   }
+    //
+    //
+    // }
+    //
+    //
+    // else {
+    //   document.getElementById('HelpLabel').innerHTML='<p class="help"style="font-size:14px;color:tomato;margin-left:5px;"><span>Please enter a valid Email Address.</span></p>';
+    //   cl.toggle("has-error");
+    //   return(false);
+    //   // cl.className+='has-error';
+    // }
+
+  }
+
+
+</script> -->

@@ -1,0 +1,78 @@
+<style>
+  .mymoviestyling{
+    font-size: 24px;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+</style>
+<nav class="navbar navbar-inverse"id="BookingTopBar"style="height:90px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/home"style="margin-left:50px;">
+        <!-- <span class="glyphicon glyphicon-film"style="font-size:23px;margin-top:15px;float:left;"> </span> -->
+        <span class="glyphicon glyphicon-menu-left"style="font-size:23px;margin-top:18px;float:left;color:white"> </span>
+        <div class=""style="margin-left:30px;margin-top:10px;font-weight:normal;font-family:comic sans ms;font-size:28px;color:white;">
+          <span >book </span>
+          <span style="display:inline-block;transform: rotate(-8deg);border-radius:20%;background-color:crimson;border:solid white 3px;padding:7px;color:white;"> your</span>
+           <span style="margin-top:12px;"> show</span>
+
+        </div>
+      </a>
+    </div>
+
+
+    <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+  </div>
+</nav>
+<div class="container-fluid"style="padding-left:45px;background-color:whitesmoke;">
+
+  <div class=""style="float:left;width:600px;height:800px;">
+    <img src="{{ratemovieCtrl.movie.Poster}}" alt=""style="max-width:100%;max-height:100%;border:solid 4px black">
+  </div>
+
+  <div class="jumbotron"style="background-color:brown;margin-left:630px;padding:20px;margin-top:10px;border-radius:15%;border:solid 4px black;">
+   <h1 style="font-family:Blippo, fantasy;margin-left:7%;color:white;">{{ratemovieCtrl.movie.Title}}</h1>
+  </div>
+
+  <div ng-class="ratemovieCtrl.class"style="margin-left:500px;font-size:36px;color:black;">
+
+  </div>
+  <div ng-show="(ratemovieCtrl.loaded)"class="jumbotron"style="background-color:lightseagreen;margin-left:630px;padding:20px;margin-top:10px;border-radius:15%;border:solid 4px black;">
+   <p style="font-family:Blippo, fantasy;margin-left:7%;color:white;font-size:20px;"><span class="mymoviestyling">Plot:</span> &nbsp{{ratemovieCtrl.MovieData.plot}}</p>
+   <p style="font-family:Blippo, fantasy;margin-left:7%;color:white;font-size:20px;"><span class="mymoviestyling">Writer:</span> &nbsp{{ratemovieCtrl.MovieData.writer}}</p>
+   <p style="font-family:Blippo, fantasy;margin-left:7%;color:white;font-size:20px;"><span class="mymoviestyling">Actors:</span> &nbsp{{ratemovieCtrl.movie.Actors}}</p>
+   <p style="font-family:Blippo, fantasy;margin-left:7%;color:white;font-size:20px;"><span class="mymoviestyling">Directors:</span> &nbsp{{ratemovieCtrl.movie.Directors}}</p>
+  </div>
+
+  <div ng-show="(ratemovieCtrl.loaded)"class="jumbotron"style="background-color:dar;margin-left:630px;padding:20px;margin-top:10px;border-radius:15%;border:solid 4px white;">
+   <p style="font-family:Blippo, fantasy;margin-left:7%;color:white;font-size:20px;">
+     <span class="glyphicon glyphicon-star"style="color:gold;font-size:38px;float:left"></span>
+     <span class="mymoviestyling"style="color:dimgrey;margin-top:80px;font-size:28px;text-decoration:none;font-family:sans-serif;font-weight:normal">{{ratemovieCtrl.CurRate}}%</span>
+     <button ng-click="ratemovieCtrl.Rate=true" type="button"class="btn btn-danger"style="margin-left:50px;height:60px;" name="button">R A T E&nbsp M O V I E</button>
+     <div ng-show="ratemovieCtrl.Rate"class="rato"style="margin-left:180px;float:left;">
+
+     </div>
+     <button ng-show="ratemovieCtrl.Rate" type="button"class="btn btn-success"id="SubmitRatingButton" name="button">S U B M I T</button>
+
+    </p>
+  </div>
+
+</div>
+<script>
+  $(document).ready(function () {
+    $('.rato').rateYo({
+      rating:"0%",
+      precision:0
+    });
+     $('#SubmitRatingButton').click(function () {
+
+       var normalFill = $(".rato").rateYo("option", "rating"); //returns 50
+      //  console.log(normalFill);
+       angular.element('#SubmitRatingButton').scope().ratemovieCtrl.SubmitRating(normalFill);//GOing to Controller
+       angular.element('#SubmitRatingButton').scope().$apply();
+     });
+
+
+  });
+</script>

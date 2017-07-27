@@ -1,8 +1,70 @@
-<div class="container">
+
+
+<nav class="navbar navbar-inverse"id="BookingTopBar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/booknow"style="">
+        <span class="glyphicon glyphicon-menu-left"style="font-size:23px;margin-top:25px;float:left"> </span>
+        <div class=""style="margin-left:30px;margin-top:15px;">
+          <span style="font-size:25px;color:mediumseagreen;">{{bookingCtrl.Ticket.MovieName}}</span>
+          <span style="font-size:15px;"><br>Hindi</span>
+          <span style="font-size:15px;"><br>{{bookingCtrl.Ticket.TheatreName}}</span>
+        </div>
+      </a>
+    </div>
+    <form class="navbar-form navbar-left"style="margin-left:280px;margin-top:25px;">
+      <div class="input-group"style="height:40px;width:70px;">
+        <label for=""style="font-size:9px;color:darkgrey;"> No.of Seats</label>
+        <select class="Selector" name=""style="width:100%;height:100%;"ng-model="bookingCtrl.NoOfSeat"ng-change="bookingCtrl.resetSeats()">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="btn-group"style="margin-left:50px;margin-top:50px;float:left;">
+      <!-- <label for=""style="font-size:9px;color:darkgrey;"> SHOWTIME</label> -->
+      <!-- Times GREEN ON CLICKING LOADED TO BE GREEN -->
+  <button type="button" class="btn btn-default"ng-repeat="t in bookingCtrl.Ticket.AllTimes"
+  ng-class="{'btn-success':t==bookingCtrl.Ticket.Time}"
+  ng-click="bookingCtrl.Ticket.Time=t;bookingCtrl.resetSeats();bookingCtrl.FilterSeatsBookedAlready()"
+  >{{t}}</button>
+
+  <!-- <button type="button" class="btn btn-success">09:45 pm</button>
+  <button type="button" class="btn btn-default">10:45 pm</button> -->
+    </div>
+    <div class="">
+      <h3><span class="glyphicon glyphicon-calendar"
+        style="color:green;border:solid 4px green;padding:15px;
+        font:comic-sans;background-color:white;margin-left:470px;margin-top:10px;">
+        {{bookingCtrl.Ticket.Date}}</span></h3>
+    </div>
+
+    <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+  </div>
+</nav>
+<div class="container-fluid BodyBooking">
+<!-- <br> -->
+
+<br>
+<div class="container"style="background-color:white;width:1000px;margin-left:30px;float:left;border:solid 4px gainsboro;height:600px">
   <div class="row">
     <div class="col-md-6">
-      <table class="table table-responsive"style="width:500px">
-        <tr id="SeatHeader"style="background-color:gainsboro;">
+    </br>
+
+    </br>
+    <h4 style="margin-left:390px;color:grey;">GOLD </h4>
+      <table class="table table-responsive table-condensed"style="width:500px;margin-left:150px;">
+        <!-- <tr id="SeatHeader"style="background-color:gainsboro;">
           <th>A</th>
           <th>B</th>
           <th>C</th>
@@ -11,64 +73,437 @@
           <th>F</th>
           <th>G</th>
           <th>H</th>
-        </tr>
-        <tr id="SeatLayout">
-          <td><div class="seat"> 1 </div></td>
-          <td><div class="seat"> 2 </div></td>
-          <td><div class="seat"> 3 </div></td>
-          <td><div class="seat"> 4</div></td>
-          <td><div class="seat"> 5 </div></td>
-          <td><div class="seat"> 6 </div></td>
-          <td><div class="seat"> 7 </div></td>
-          <td><div class="seat"> 8 </div></td>
+        </tr> -->
+        <tr class="SeatLayout">
+          <th class="TableHeaderNoBorder">A</th>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A1"ng-click="bookingCtrl.test('#A1')"> 1 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A2"ng-click="bookingCtrl.test('#A2')"> 2 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A3"ng-click="bookingCtrl.test('#A3')"> 3 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A4"ng-click="bookingCtrl.test('#A4')"> 4</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A5"ng-click="bookingCtrl.test('#A5')"> 5 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A6"ng-click="bookingCtrl.test('#A6')"> 6 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A7"ng-click="bookingCtrl.test('#A7')"> 7 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A8"ng-click="bookingCtrl.test('#A8')"> 8 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A9"ng-click="bookingCtrl.test('#A9')"> 9 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A10"ng-click="bookingCtrl.test('#A10')"> 10 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A11"ng-click="bookingCtrl.test('#A11')"> 11 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A12"ng-click="bookingCtrl.test('#A12')"> 12 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A13"ng-click="bookingCtrl.test('#A13')"> 13 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A14"ng-click="bookingCtrl.test('#A14')"> 14</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A15"ng-click="bookingCtrl.test('#A15')"> 15 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A16"ng-click="bookingCtrl.test('#A16')"> 16 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A17"ng-click="bookingCtrl.test('#A17')"> 17 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="A18"ng-click="bookingCtrl.test('#A18')"> 18 </div></td>
+
         </tr>
 
-        <tr id="SeatLayout">
-          <td><div class="seat"> 1 </div></td>
-          <td><div class="seat"> 2 </div></td>
-          <td><div class="seat"> 3 </div></td>
-          <td><div class="seat"> 4</div></td>
-          <td><div class="seat"> 5 </div></td>
-          <td><div class="seat"> 6 </div></td>
-          <td><div class="seat"> 7 </div></td>
-          <td><div class="seat"> 8 </div></td>
-        </tr>
-        <tr id="SeatLayout">
-          <td><div class="seat"> 1 </div></td>
-          <td><div class="seat"> 2 </div></td>
-          <td><div class="seat"> 3 </div></td>
-          <td><div class="seat"> 4</div></td>
-          <td><div class="seat"> 5 </div></td>
-          <td><div class="seat"> 6 </div></td>
-          <td><div class="seat"> 7 </div></td>
-          <td><div class="seat"> 8 </div></td>
-        </tr>
-        <tr id="SeatLayout">
-          <td></td>
+        <tr class="SeatLayout">
+          <th class="TableHeaderNoBorder">B</th>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B1"ng-click="bookingCtrl.test('#B1')"> 1 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B2"ng-click="bookingCtrl.test('#B2')"> 2 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B3"ng-click="bookingCtrl.test('#B3')"> 3 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B4"ng-click="bookingCtrl.test('#B4')"> 4</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B5"ng-click="bookingCtrl.test('#B5')"> 5 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B6"ng-click="bookingCtrl.test('#B6')"> 6 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B7"ng-click="bookingCtrl.test('#B7')"> 7 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B8"ng-click="bookingCtrl.test('#B8')"> 8 </div></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B11"ng-click="bookingCtrl.test('#B11')"> 11 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B12"ng-click="bookingCtrl.test('#B12')"> 12 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B13"ng-click="bookingCtrl.test('#B13')"> 13 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B14"ng-click="bookingCtrl.test('#B14')"> 14</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B15"ng-click="bookingCtrl.test('#B15')"> 15 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B16"ng-click="bookingCtrl.test('#B16')"> 16 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B17"ng-click="bookingCtrl.test('#B17')"> 17 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="B18"ng-click="bookingCtrl.test('#B18')"> 18 </div></td>
 
-          <td><div class="seat"> 2 </div></td>
-          <td><div class="seat"> 3 </div></td>
-          <td><div class="seat"> 4</div></td>
-          <td><div class="seat"> 5 </div></td>
-          <td><div class="seat"> 6 </div></td>
-          <td><div class="seat"> 7 </div></td>
+        </tr>
+        <tr class="SeatLayout">
+          <th class="TableHeaderNoBorder">C</th>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C1"ng-click="bookingCtrl.test('#C1')"> 1 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C2"ng-click="bookingCtrl.test('#C2')"> 2 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C3"ng-click="bookingCtrl.test('#C3')"> 3 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C4"ng-click="bookingCtrl.test('#C4')"> 4</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C5"ng-click="bookingCtrl.test('#C5')"> 5 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C6"ng-click="bookingCtrl.test('#C6')"> 6 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C7"ng-click="bookingCtrl.test('#C7')"> 7 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C8"ng-click="bookingCtrl.test('#C8')"> 8 </div></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C11"ng-click="bookingCtrl.test('#C11')"> 11 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C12"ng-click="bookingCtrl.test('#C12')"> 12 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C13"ng-click="bookingCtrl.test('#C13')"> 13 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C14"ng-click="bookingCtrl.test('#C14')"> 14</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C15"ng-click="bookingCtrl.test('#C15')"> 15 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C16"ng-click="bookingCtrl.test('#C16')"> 16 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C17"ng-click="bookingCtrl.test('#C17')"> 17 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="C18"ng-click="bookingCtrl.test('#C18')"> 18 </div></td>
+        </tr>
+        <tr class="SeatLayout">
+          <th class="TableHeaderNoBorder">D</th>
+          <td class="TableHeaderNoBorder"></td>
 
-          <td></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D2"ng-click="bookingCtrl.test('#D2')"> 2 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D3"ng-click="bookingCtrl.test('#D3')"> 3 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D4"ng-click="bookingCtrl.test('#D4')"> 4</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D5"ng-click="bookingCtrl.test('#D5')"> 5 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D6"ng-click="bookingCtrl.test('#D6')"> 6 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D7"ng-click="bookingCtrl.test('#D7')"> 7 </div></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D12"ng-click="bookingCtrl.test('#D12')"> 12 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D13"ng-click="bookingCtrl.test('#D13')"> 13 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D14"ng-click="bookingCtrl.test('#D14')"> 14</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D15"ng-click="bookingCtrl.test('#D15')"> 15 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D16"ng-click="bookingCtrl.test('#D16')"> 16 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="D17"ng-click="bookingCtrl.test('#D17')"> 17 </div></td>
+
+          <td class="TableHeaderNoBorder"></td>
         </tr>
-        <tr id="SeatLayout">
-          <td></td>
-          <td><div class="seat"> 2 </div></td>
-          <td><div class="seat"> 3 </div></td>
-          <td><div class="seat"> 4</div></td>
-          <td><div class="seat"> 5 </div></td>
-          <td><div class="seat"> 6 </div></td>
-          <td><div class="seat"> 7 </div></td>
-          <td></td>
+        <tr class="SeatLayout">
+          <th class="TableHeaderNoBorder">E</th>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E2"ng-click="bookingCtrl.test('#E2')"> 2 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E3"ng-click="bookingCtrl.test('#E3')"> 3 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E4"ng-click="bookingCtrl.test('#E4')"> 4</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E5"ng-click="bookingCtrl.test('#E5')"> 5 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E6"ng-click="bookingCtrl.test('#E6')"> 6 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E7"ng-click="bookingCtrl.test('#E7')"> 7 </div></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E12"ng-click="bookingCtrl.test('#E12')"> 12 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E13"ng-click="bookingCtrl.test('#E13')"> 13 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E14"ng-click="bookingCtrl.test('#E14')"> 14</div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E15"ng-click="bookingCtrl.test('#E15')"> 15 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E16"ng-click="bookingCtrl.test('#E16')"> 16 </div></td>
+          <td class="TableHeaderNoBorder"><div class="seat"id="E17"ng-click="bookingCtrl.test('#E17')"> 17 </div></td>
         </tr>
+
       </table>
+    <!--
+d
+d
+d
+d
+dd
+d
+d
+d
+d
+    Normal Class Table EXECUTIVE-->
+  <!-- </br> -->
+  <h4 style="margin-left:370px;color:grey;"> </h4>
+    <table class="table table-responsive table-condensed"style="width:500px;margin-left:150px;">
+      <!-- <tr id="SeatHeader"style="background-color:gainsboro;">
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+        <th>H</th>
+      </tr> -->
+      <tr class="SeatLayout">
+        <th class="TableHeaderNoBorder">F</th>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F1"ng-click="bookingCtrl.test('#F1')"> 1 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F2"ng-click="bookingCtrl.test('#F2')"> 2 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F3"ng-click="bookingCtrl.test('#F3')"> 3 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F4"ng-click="bookingCtrl.test('#F4')"> 4</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F5"ng-click="bookingCtrl.test('#F5')"> 5 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F6"ng-click="bookingCtrl.test('#F6')"> 6 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F7"ng-click="bookingCtrl.test('#F7')"> 7 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F8"ng-click="bookingCtrl.test('#F8')"> 8 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F9"ng-click="bookingCtrl.test('#F9')"> 9 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F10"ng-click="bookingCtrl.test('#F10')"> 10 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F11"ng-click="bookingCtrl.test('#F11')"> 11 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F12"ng-click="bookingCtrl.test('#F12')"> 12 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F13"ng-click="bookingCtrl.test('#F13')"> 13 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F14"ng-click="bookingCtrl.test('#F14')"> 14</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F15"ng-click="bookingCtrl.test('#F15')"> 15 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F16"ng-click="bookingCtrl.test('#F16')"> 16 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F17"ng-click="bookingCtrl.test('#F17')"> 17 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="F18"ng-click="bookingCtrl.test('#F18')"> 18 </div></td>
+
+      </tr>
+
+      <tr class="SeatLayout">
+        <th class="TableHeaderNoBorder">G</th>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G1"ng-click="bookingCtrl.test('#G1')"> 1 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G2"ng-click="bookingCtrl.test('#G2')"> 2 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G3"ng-click="bookingCtrl.test('#G3')"> 3 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G4"ng-click="bookingCtrl.test('#G4')"> 4</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G5"ng-click="bookingCtrl.test('#G5')"> 5 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G6"ng-click="bookingCtrl.test('#G6')"> 6 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G7"ng-click="bookingCtrl.test('#G7')"> 7 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G8"ng-click="bookingCtrl.test('#G8')"> 8 </div></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G11"ng-click="bookingCtrl.test('#G11')"> 11 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G12"ng-click="bookingCtrl.test('#G12')"> 12 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G13"ng-click="bookingCtrl.test('#G13')"> 13 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G14"ng-click="bookingCtrl.test('#G14')"> 14</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G15"ng-click="bookingCtrl.test('#G15')"> 15 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G16"ng-click="bookingCtrl.test('#G16')"> 16 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G17"ng-click="bookingCtrl.test('#G17')"> 17 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="G18"ng-click="bookingCtrl.test('#G18')"> 18 </div></td>
+
+      </tr>
+      <tr class="SeatLayout">
+        <th class="TableHeaderNoBorder">H</th>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H1"ng-click="bookingCtrl.test('#H1')"> 1 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H2"ng-click="bookingCtrl.test('#H2')"> 2 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H3"ng-click="bookingCtrl.test('#H3')"> 3 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H4"ng-click="bookingCtrl.test('#H4')"> 4</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H5"ng-click="bookingCtrl.test('#H5')"> 5 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H6"ng-click="bookingCtrl.test('#H6')"> 6 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H7"ng-click="bookingCtrl.test('#H7')"> 7 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H8"ng-click="bookingCtrl.test('#H8')"> 8 </div></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H11"ng-click="bookingCtrl.test('#H11')"> 11 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H12"ng-click="bookingCtrl.test('#H12')"> 12 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H13"ng-click="bookingCtrl.test('#H13')"> 13 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H14"ng-click="bookingCtrl.test('#H14')"> 14</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H15"ng-click="bookingCtrl.test('#H15')"> 15 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H16"ng-click="bookingCtrl.test('#H16')"> 16 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H17"ng-click="bookingCtrl.test('#H17')"> 17 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="H18"ng-click="bookingCtrl.test('#H18')"> 18 </div></td>
+      </tr>
+      <tr class="SeatLayout">
+        <th class="TableHeaderNoBorder">I</th>
+        <td class="TableHeaderNoBorder"></td>
+
+        <td class="TableHeaderNoBorder"><div class="seat"id="I2"ng-click="bookingCtrl.test('#I2')"> 2 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I3"ng-click="bookingCtrl.test('#I3')"> 3 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I4"ng-click="bookingCtrl.test('#I4')"> 4</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I5"ng-click="bookingCtrl.test('#I5')"> 5 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I6"ng-click="bookingCtrl.test('#I6')"> 6 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I7"ng-click="bookingCtrl.test('#I7')"> 7 </div></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I12"ng-click="bookingCtrl.test('#I12')"> 12 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I13"ng-click="bookingCtrl.test('#I13')"> 13 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I14"ng-click="bookingCtrl.test('#I14')"> 14</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I15"ng-click="bookingCtrl.test('#I15')"> 15 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I16"ng-click="bookingCtrl.test('#I16')"> 16 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="I17"ng-click="bookingCtrl.test('#I17')"> 17 </div></td>
+
+        <td class="TableHeaderNoBorder"></td>
+      </tr>
+      <tr class="SeatLayout">
+        <th class="TableHeaderNoBorder">J</th>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J2"ng-click="bookingCtrl.test('#J2')"> 2 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J3"ng-click="bookingCtrl.test('#J3')"> 3 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J4"ng-click="bookingCtrl.test('#J4')"> 4</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J5"ng-click="bookingCtrl.test('#J5')"> 5 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J6"ng-click="bookingCtrl.test('#J6')"> 6 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J7"ng-click="bookingCtrl.test('#J7')"> 7 </div></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J12"ng-click="bookingCtrl.test('#J12')"> 12 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J13"ng-click="bookingCtrl.test('#J13')"> 13 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J14"ng-click="bookingCtrl.test('#J14')"> 14</div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J15"ng-click="bookingCtrl.test('#J15')"> 15 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J16"ng-click="bookingCtrl.test('#J16')"> 16 </div></td>
+        <td class="TableHeaderNoBorder"><div class="seat"id="J17"ng-click="bookingCtrl.test('#J17')"> 17 </div></td>
+      </tr>
+
+    </table>
+
 
     </div>
 
   </div>
 
 </div>
+
+<div class="container"style="background-color:white;width:500px;min-height:470px;float:right;margin-right:100px;border:solid 4px gainsboro">
+  <div class="row">
+    <!-- <div class="col-md-6"> -->
+
+      <br>
+      <br>
+      <h4 style="color:crimson;font-weight:normal;padding-left:50px;">BOOKING SUMMARY</h4><br>
+      <table class="table table-responsive "style="font-size:20px;font-weight:normal;">
+        <tr>
+          <th style="border-width:3px;border-bottom:none;"ng-model="bookingCtrl.Summary.Tclass">{{bookingCtrl.Summary.Tclass}}</th>
+
+
+          <td style="text-align:right;padding-left:150px;border-bottom:none;font-size:17px;"ng-model="bookingCtrl.Summary.price">{{bookingCtrl.Summary.price}}.00</td>
+        </tr>
+
+         <tr ng-repeat="x in bookingCtrl.seatsBooked"style="float:left;display:inline-block;">
+           <td style="font-size:14px;border:none;padding:3px;">{{x}} , </td>
+         </tr>
+        <tr>
+
+          <th style="font-size:14px;border:none;">Internet Handling</th>
+
+
+          <td style="text-align:right;padding-left:150px;border:none;font-size:17px;"ng-model="bookingCtrl.Summary.InternetHandling">{{bookingCtrl.Summary.InternetHandling}}.00</td>
+        </tr>
+
+        <tr>
+          <th style="font-size:14px;border-top:solid 4px whitesmoke">SubTotal:</th>
+
+
+          <td style="text-align:right;padding-left:150px;border-top:solid 4px whitesmoke"ng-model="bookingCtrl.Summary.SubT">Rs.{{bookingCtrl.Summary.SubT}}.00</td>
+        </tr>
+
+      </table>
+      <!-- <a class="btn btn-danger active"href="#" style="width:100%;margin-top:150px;">
+      <button class="btn btn-danger" style="width:inherit;text-align:left;"ng-model="bookingCtrl.Summary.SubT">TOTAL: Rs.{{bookingCtrl.Summary.SubT}}.00
+        <span style="margin-left:250px;">PROCEED</span>
+      </button>
+      </a> -->
+       <span style="color:tomato;font-size:14px;"ng-show="bookingCtrl.eroo">Please Select Your Seats.</span>
+       <a class="btn btn-danger active"ng-click="bookingCtrl.Submit()" style="width:100%;margin-top:163px;">
+      <button class="btn btn-danger" style="width:inherit;text-align:center;">P R O C E E D
+
+      </button>
+      </a>
+    </div>
+
+    </div>
+    </div>
+<!-- <script type="text/javascript">
+$(document).ready(function () {
+
+  $('.seat').click(function () {
+    // console.log(this.NoOfSeat);
+    //console.log(angular.element('.Selector').scope.test());
+    $(this).toggleClass('seatStyle');
+
+  });
+
+
+});
+</script> -->
+</div>
+
+
+<div class="modal fade" id="myModal2" role="dialog"style="top:200px;">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header"style="background-color:#001226;height:80px;">
+          <button type="button" class="close" data-dismiss="modal"style="color:white;">&times;</button>
+          <center><h4 class="modal-title"style="color:mediumseagreen">H O W &nbsp M A N Y &nbsp T I C K E T S ?</h4></center>
+        </div>
+        <!--Modal Body  -->
+        <div class="modal-body"style="background-color:whitesmoke">
+        <center>
+          <ul class="nav nav-pills"style="background-color:white;display:table;font-size:19px">
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('1')"  data-dismiss="modal" href="#hom">1</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('2')" data-dismiss="modal" href="#menu2">2</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('3')" data-dismiss="modal" href="#menu3">3</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('4')" data-dismiss="modal" href="#menu4">4</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('5')" data-dismiss="modal" href="#menu5">5</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('6')" data-dismiss="modal" href="#menu6">6</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('7')" data-dismiss="modal" href="#menu6">7</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('8')" data-dismiss="modal" href="#menu7">8</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('9')" data-dismiss="modal" href="#menu6">9</a></li>
+            <li style="display:table-cell"><a data-toggle="pill" ng-click="bookingCtrl.SetNoOFSEAT('10')" data-dismiss="modal" href="#menu6">10</a></li>
+
+          </ul>
+
+          <div class="tab-content"style="margin-top:50px;margin-bottom:30px;">
+              <div id="hom" class="tab-pane  active">
+                <img src="../assets/images/Screen Shot 2017-07-24 at 3.04.21 PM.png" alt="">
+              </div>
+
+              <div id="menu2" class="tab-pane ">
+                <img src="../assets/images/Screen Shot 2017-07-24 at 3.04.35 PM.png" alt="">
+              </div>
+              <div id="menu3" class="tab-pane ">
+                <img src="../assets/images/Screen Shot 2017-07-24 at 3.04.46 PM.png" alt="">
+              </div>
+              <div id="menu4" class="tab-pane ">
+                <img src="../assets/images/Screen Shot 2017-07-24 at 3.04.59 PM.png" alt="">
+              </div>
+              <div id="menu5" class="tab-pane ">
+                <img src="../assets/images/Screen Shot 2017-07-24 at 3.05.09 PM.png" alt="">
+              </div>
+              <div id="menu6" class="tab-pane ">
+                <img src="../assets/images/Screen Shot 2017-07-24 at 3.05.18 PM.png" alt="">
+              </div>
+            </div>
+            </center>
+            </div>
+
+
+
+
+          <!-- <div class="form-group">
+            <label for="TheatreName"><b style="color:seagreen;">Theatre Name:</b></label>
+            <input type="text" id="TName"placeholder="Theatre Name" ng-model="theatreCtrl.TheatreDetails.TheatreNameModal"class="form-control modalStyle"/>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <label for="State"><b style="color:seagreen;">State:</b></label>
+
+            <select name="state" class="form-control modalStyle" id="State"ng-model="theatreCtrl.TheatreDetails.StateModal">
+              <option value="Delhi">Delhi</option>
+
+        <option value="Haryana">Haryana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Goa">Goa</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="AndhraPradesh">AndhraPradesh</option>
+      </select>
+
+          </div>
+          <div class="form-group">
+            <label for="City"><b style="color:seagreen;">City:</b></label>
+
+            <select name="city" class="form-control modalStyle" id="City"ng-model="theatreCtrl.TheatreDetails.CityModal">
+        <option value="Delhi">Delhi</option>
+        <option value="Faridabad">Faridabad</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Pune">Pune</option>
+        <option value="Kolkata">Kolkata</option>
+      </select>
+
+
+          </div>
+          <div class="form-group">
+            <label for="Seats"><b style="color:seagreen;">Address:</b></label>
+            <input type="text" placeholder="G-25,SouthEx-I,New Delhi-110065" id="Seats"ng-model="theatreCtrl.TheatreDetails.LocationsModal"class="form-control modalStyle"/>
+          </div>
+           <div class="form-group">
+            <!- - <button class="btn btn-success" ng-show="theatreCtrl.add"ng-click="theatreCtrl.RegisterUser()">Add</button> - ->
+            <button class="btn btn-warning" ng-show="theatreCtrl.save"ng-click="theatreCtrl.SaveUser()"data-dismiss="modal">Save</button>
+
+
+          </div> -->
+
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('.nav-pills > li > a').hover(function() {
+        $(this).tab('show');
+
+         });
+    });
+  </script>
