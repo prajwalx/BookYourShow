@@ -86,7 +86,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
       <div class="form-group">
         <label for="State"><b>State:</b></label>
 
-        <select name="state" class="form-control" id="State"ng-model="theatreCtrl.TheatreDetails.State">
+        <select name="state" class="form-control" id="State"ng-init="theatreCtrl.TheatreDetails.State='Delhi'"ng-model="theatreCtrl.TheatreDetails.State">
           <option value="Delhi">Delhi</option>
 
     <option value="Haryana">Haryana</option>
@@ -100,7 +100,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
       <div class="form-group">
         <label for="City"><b>City:</b></label>
 
-        <select name="city" class="form-control" id="City"ng-model="theatreCtrl.TheatreDetails.City">
+        <select name="city" class="form-control" id="City"ng-init="theatreCtrl.TheatreDetails.City='Delhi'"ng-model="theatreCtrl.TheatreDetails.City">
     <option value="Delhi">Delhi</option>
     <option value="Faridabad">Faridabad</option>
     <option value="Mumbai">Mumbai</option>
@@ -124,7 +124,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
 
     </div>
 
-    <div class="row"style="overflow-x:scroll;">
+    <div class="row"style="overflow-x:scroll;" ng-show="theatreCtrl.LocalDB">
       <div class="row-md-6"style="border:solid 2px whitesmoke;">
         <table id="local2"class="table table-bordered table-striped"style="background-color:white;border:solid 2px gainsboro">
           <tr>

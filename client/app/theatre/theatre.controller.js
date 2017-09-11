@@ -19,6 +19,7 @@ class TheatreComponent {
     this.$rootScope = $rootScope;
 
     this.TheatreData = [];
+    this.LocalDB=false;
     this.add=true;
     this.save=false;
     this.TheatreDetails='';
@@ -35,6 +36,7 @@ class TheatreComponent {
     this.$http.get('/api/theatresendpoints').then(response=>{
       this.TheatreData = response.data;
       console.log(response.data);
+      this.LocalDB=true;
       this.$rootScope.IndexBar=true;  //Showing IndexBar from IndexHTML
       this.socket.syncUpdates('theatresendpoint',this.TheatreData)
     });
@@ -110,6 +112,7 @@ class TheatreComponent {
         this.TheatreData.splice(index,1);
       }
     }
+
     console.log('Theatre removed');
   }
 

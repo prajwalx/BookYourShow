@@ -67,7 +67,7 @@ style="background-color:white;position:relative;padding:0;overflow-x:hidden;marg
       <div class="form-group">
         <label ><b>Movie:</b></label>
         <!-- <input type="text" id="TName"placeholder="Theatre Name" ng-model="theatreCtrl.TheatreDetails.TheatreName"class="form-control"/> -->
-        <select class="form-control" id="Movie"ng-model="mapmovieCtrl.Movie" data-ng-options="option.Title for option in mapmovieCtrl.Movieoptions">
+        <select class="form-control" id="Movie"ng-init="mapmovieCtrl.Movie=mapmovieCtrl.Movieoptions[0]"ng-model="mapmovieCtrl.Movie" data-ng-options="option.Title for option in mapmovieCtrl.Movieoptions">
         <option value="">-Select Movie-</option>
 
 

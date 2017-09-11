@@ -3,12 +3,17 @@
 (function(){
 
 class RatemovieComponent {
-  constructor($scope,$rootScope,$http,socket) {
+  constructor($scope,$rootScope,$http,socket,$sce,youtubeFactory) {
     this.message = 'Hello';
+    this.$sce=$sce;
     this.$http=$http;
     this.$scope=$scope;
     this.$rootScope=$rootScope;
     this.$rootScope.IndexBar=false;
+    this.socket=socket;
+
+    this.youtubeFactory=youtubeFactory;
+
     this.movie=JSON.parse(sessionStorage.getItem("ratemovie"));
     console.log(this.movie);
     this.movie.Actors=this.TrimFourActors(this.movie.Actors);
@@ -19,7 +24,8 @@ class RatemovieComponent {
     this.class="fa fa-spinner loader";
     this.RatingData=[];
     this.CurRate="0";
-    this.socket=socket;
+
+    // this.YoutubeUrl='https://www.youtube.com/embed/F-eMt3SrfFU';
 
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('ratingendpoint');
@@ -33,16 +39,58 @@ class RatemovieComponent {
      this.MovieData=response.data;
      this.loaded=true;
      this.class="";
-    });
+
+     });
 
     this.$http.get('/api/ratingendpoints').then(response=>{
+
       this.RatingData=response.data;
+
       this.socket.syncUpdates('ratingendpoint', this.RatingData);
       this.DisplayRating();
 
     });
+    this.LoadTrailer();
+    this.$http.get('/api/ratingendpoints').then(response=>{
+      this.topMovies=response.data;
+    });
+
+
 
   }
+LoadTrailer(){
+  this.youtubeFactory.getVideosFromSearchByParams({
+        q: this.movie.Title+'-trailer-2017',
+        order:'viewCount',
+
+        key: 'AIzaSyDpjg0vprIQ5NpbKHlGVfLc5M-c4vH-YHs'
+    }).then(response=>{
+      console.log(response.data);
+      // console.info('videos from search by query', data);
+      // console.log(data.data.items[0].id.videoId);
+      var ind=0;
+      for(var i=0;i<response.data.items.length;i++){
+      if(response.data.items[i].snippet.title.indexOf(this.movie.Title)!==-1||(response.data.items[i].snippet.description.indexOf(this.movie.Title)!==-1)){
+        ind=i;
+
+        break;
+      }
+      }
+      // if(ind=)
+      console.log('IND:'+ind);
+      var vid='https://www.youtube.com/embed/'+response.data.items[ind].id.videoId;
+      console.log(vid);
+      // this.YoutubeUrl=vid;
+      // this.GetVideo(vid);
+      this.YoutubeUrl = this.$sce.trustAsResourceUrl(vid);
+  //     $scope.setProject = function (id) {
+  // $scope.currentProject = $scope.projects[id];
+  // $scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.currentProject.url);
+// }
+});
+}
+
+
   DisplayRating(){
     for(var i=this.RatingData.length-1;i>=0;i--){
       if(this.RatingData[i].Movie!==this.movie.Title)
@@ -57,6 +105,18 @@ class RatemovieComponent {
     this.CurRate=avg.toString();
 
   }
+  TrimOneActor(str){
+    var count=0;
+    var oneActor='';
+    for(var i=0;i<str.length;i++){
+      if(count>=1)
+      return oneActor;
+      if(str.charAt(i)==',')
+      count++;
+      oneActor=oneActor+str.charAt(i);
+    }
+    return oneActor;
+  }
   TrimFourActors(str){
     var count=0;
     var fourActors='';
@@ -67,6 +127,7 @@ class RatemovieComponent {
       count++;
       fourActors=fourActors+str.charAt(i);
     }
+    return fourActors;
   }
   SubmitRating(rating){
     console.log(rating);

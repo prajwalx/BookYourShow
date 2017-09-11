@@ -1,0 +1,39 @@
+{
+  "name": "angular-youtube-api-factory",
+  "homepage": "https://github.com/JohnnyTheTank/angular-youtube-api-factory",
+  "authors": [
+    "Jonathan Hornung <jonathan.hornung@gmail.com>"
+  ],
+  "version": "0.6.2",
+  "description": "angular factory for youtube rest api connection",
+  "main": "dist/angular-youtube-api-factory.min.js",
+  "moduleType": [],
+  "keywords": [
+    "youtube",
+    "angularjs",
+    "rest",
+    "api",
+    "json"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*"
+  },
+  "_release": "0.6.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.6.2",
+    "commit": "4a9c1b2f9b7da33fda256d553d6fc7f95b514926"
+  },
+  "_source": "https://github.com/JohnnyTheTank/angular-youtube-api-factory.git",
+  "_target": "^0.6.2",
+  "_originalSource": "angular-youtube-api-factory",
+  "_direct": true
+}

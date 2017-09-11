@@ -59,20 +59,28 @@ class BookingComponent {
 
   FilterSeatsBookedAlready(){
     for(var i=this.seatsBookedfromDB.length-1;i>=0;i--){
+
       if(this.Match(this.seatsBookedfromDB[i],this.Ticket)){
         this.DisableIDs(JSON.parse(this.seatsBookedfromDB[i].SeatIDs));
+        console.log('Disabling'+this.seatsBookedfromDB[i].SeatIDs);
       }
       else{
-        this.EnableIDs(JSON.parse(this.seatsBookedfromDB[i].SeatIDs));
+        //this.EnableIDs(JSON.parse(this.seatsBookedfromDB[i].SeatIDs));
+        // console.log('Else:Enabling'+this.seatsBookedfromDB[i].SeatIDs);
       }
     }//for-loop
 
   }
   Match(TicketBooked,Ticket){
+    console.log(TicketBooked,Ticket);
     if(TicketBooked.Date===Ticket.Date&&TicketBooked.MovieName===Ticket.MovieName&&
     TicketBooked.TheatreLocation===Ticket.TheatreLocation&&TicketBooked.TheatreName===Ticket.TheatreName&&
-  TicketBooked.Time===Ticket.Time)
+  TicketBooked.Time===Ticket.Time){
+    console.log('MATCH TRUE');
   return true;
+
+  }
+
   return false;
   }
   DisableIDs(arr){
@@ -85,6 +93,7 @@ class BookingComponent {
   }
   EnableIDs(arr){
     console.log(arr);
+    //return;
     for(var i=0;i<arr.length;i++){
       var s=angular.element(document.querySelector(arr[i]));
       if(s.hasClass('seatDisable')){
@@ -157,6 +166,11 @@ class BookingComponent {
     // console.log('why not removing');
     // this.count='0';
 
+    for(var i=this.seatsBookedfromDB.length-1;i>=0;i--){
+      this.EnableIDs(JSON.parse(this.seatsBookedfromDB[i].SeatIDs));
+      console.log('EnablingIDS'+this.seatsBookedfromDB[i].SeatIDs);
+    }
+    //this.EnableIDs(JSON.parse(this.seatsBookedfromDB[i].SeatIDs));
     //When No.of Seats ae changed we reset all seats
     var arlen=this.seatsBooked.length;console.log(arlen);
     for(var i=arlen-1;i>=0;i--){

@@ -65,6 +65,8 @@
         Duration: this.MovieDetails.dur,
         Directors: this.MovieDetails.director,
         Id:this.MovieDetails.id
+      }).then(response=>{
+        this.MovieData.push(response.data);
       });
       console.log('Movie Added');
 
@@ -80,6 +82,7 @@
       if (x) {
         this.$http.delete('/api/moviesendpoints/' + Movie._id);
       }
+      this.MovieData.splice(this.MovieData.indexOf(Movie),1);
       console.log('Movie removed');
 
     }

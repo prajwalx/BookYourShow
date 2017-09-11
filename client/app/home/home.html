@@ -1,22 +1,13 @@
 
-<script>
-$(document).ready(function () {
-var menu = $('#fixbar');
-var origOffsetY = menu.offset().top;
-function scroll() {
-    if ($(window).scrollTop() >= origOffsetY) {
-        $('#fixbar').addClass('navbar-fixed-top');
-         document.getElementById('fixbar').style.top="-2px";
+<link rel="stylesheet" href="home.css">
+<style>
+.myActive{
+  background-color:crimson;
+  color: white;
 
-    } else {
-        $('#fixbar').removeClass('navbar-fixed-top');
-         document.getElementById('fixbar').style.top="51px";
-    }
-   }
-  document.onscroll = scroll;
-});
-</script>
+}
 
+</style>
 
 <div class="container-fluid "id="fixbar">
   <form class="navbar-form" >
@@ -49,15 +40,15 @@ function scroll() {
     <!-- Wrapper for slides- - -  - - - - -  -  - - - - -  - - -     - - - - - - - - - - - -  -->
     <div class="carousel-inner">
       <div class="item active" >
-        <img src="transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59" >
+        <img src="./assets/images/transformers-the-last-knight-3d-showcase-28-06-2017-18-59.jpg" alt="transformers-the-last-knight-3d-showcase-28-06-2017-18-59" >
       </div>
 
       <div class="item">
-        <img src="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01" >
+        <img src="./assets/images/ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01.jpg" alt="ek-haseena-thi-ek-deewana-tha-showcase-28-06-217-19-01" >
       </div>
 
       <div class="item">
-        <img src="spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27" >
+        <img src="./assets/images/spider-man-homecoming-movie-showcase-23-06-2017-20-27.jpg" alt="spider-man-homecoming-movie-showcase-23-06-2017-20-27" >
       </div>
     </div>
 
@@ -406,7 +397,21 @@ COMING SOON Movies - - - - - - - - -  - - - - - - - - - -  -
 </br>
 </br>
 </br></br></br></br></br></br></br></br><center></center></br></br></br>
-<script type="text/javascript">
 
+<script>
+$(document).ready(function () {
+var menu = $('#fixbar');
+var origOffsetY = menu.offset().top;
+function scroll() {
+    if ($(window).scrollTop() >= origOffsetY) {
+        $('#fixbar').addClass('navbar-fixed-top');
+         document.getElementById('fixbar').style.top="-2px";
 
+    } else {
+        $('#fixbar').removeClass('navbar-fixed-top');
+         document.getElementById('fixbar').style.top="51px";
+    }
+   }
+  document.onscroll = scroll;
+});
 </script>

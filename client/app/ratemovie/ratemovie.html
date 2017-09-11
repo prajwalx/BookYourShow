@@ -1,16 +1,17 @@
-<style>
+<!-- /*<style>
   .mymoviestyling{
     font-size: 24px;
     text-decoration: underline;
     font-weight: bold;
   }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar navbar-inverse"id="BookingTopBar"style="height:90px;">
   <div class="container-fluid">
     <div class="navbar-header">
 
       <a class="navbar-brand" href="/home"style="margin-left:50px;">
-        <!-- <span class="glyphicon glyphicon-film"style="font-size:23px;margin-top:15px;float:left;"> </span> -->
+        <!- - <span class="glyphicon glyphicon-film"style="font-size:23px;margin-top:15px;float:left;"> </span> - ->
         <span class="glyphicon glyphicon-menu-left"style="font-size:23px;margin-top:18px;float:left;color:white"> </span>
         <div class=""style="margin-left:30px;margin-top:10px;font-weight:normal;font-family:comic sans ms;font-size:28px;color:white;">
           <span >book </span>
@@ -22,7 +23,7 @@
     </div>
 
 
-    <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+    <!- - <button class="btn btn-danger navbar-btn">Button</button> - ->
   </div>
 </nav>
 <div class="container-fluid"style="padding-left:45px;background-color:whitesmoke;">
@@ -58,7 +59,135 @@
     </p>
   </div>
 
+</div>*/ -->
+<style>
+  .mymoviestyling{
+    font-size: 22px;
+    text-decoration: underline;
+    /*font-weight: bold;*/
+  }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<nav class="navbar navbar-inverse"id="BookingTopBar"style="height:90px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/home"style="margin-left:50px;">
+        <!-- <span class="glyphicon glyphicon-film"style="font-size:23px;margin-top:15px;float:left;"> </span> -->
+        <span class="glyphicon glyphicon-menu-left"style="font-size:23px;margin-top:18px;float:left;color:white"> </span>
+        <div class=""style="margin-left:30px;margin-top:10px;font-weight:normal;font-family:comic sans ms;font-size:28px;color:white;">
+          <span >book </span>
+          <span style="display:inline-block;transform: rotate(-8deg);border-radius:20%;background-color:crimson;border:solid white 3px;padding:7px;color:white;"> your</span>
+           <span style="margin-top:12px;"> show</span>
+
+        </div>
+      </a>
+    </div>
+
+
+    <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+  </div>
+</nav>
+
+<div class="container"style="background-color:white">
+<div class="col-md-9">
+  <div class="jumbotron"style="background-color:dimgrey;color:white;font-family: 'Raleway', sans-serif;padding-bottom:4px;">
+    <h1 style="">{{ratemovieCtrl.movie.Title}}</h1>
+    <h4>{{ratemovieCtrl.movie.Duration}}&nbsp&nbsp|&nbsp&nbsp{{ratemovieCtrl.movie.Genre}}&nbsp&nbsp|&nbsp&nbsp 2017</h4>
+
+  </div>
 </div>
+<div class="col-md-3">
+  <div class=""style="width:350px;background-color:grey;margin-left:0%;border-radius:5%;border:solid 2px crimson;float:left;color:white">
+    <center>
+      <br>
+    <p>T O P  M O V I E S</P>
+      <div class="horiLine">
+      </div><br>
+    </center>
+    <ul class="list-group"style="">
+      <!-- <li class="list-group-item"ng-repeat="r in homeCtrl.RatingData | orderBy:'-Rating'"><span class="heart"style="font-size:20px;"></span> -->
+        <!-- &nbsp&nbsp&nbsp{{r.Rating}}% &nbsp -->
+        <!-- <span style="text-align:left;margin-left:50px;font-weight:bold;">{{r.Movie}}</span></li> -->
+      <li class="list-group-item"style="background-color:dimgray;color:white"ng-repeat="r in ratemovieCtrl.topMovies | orderBy:'-Rating'"><span class="heart"></span>
+        &nbsp&nbsp&nbsp{{r.Rating}}% &nbsp
+      <span style="text-align:left;margin-left:50px;font-weight:bold;">{{r.Movie}}</span></li>
+      <!-- <li class="list-group-item"ng-bind="AdminController.RatingData[0].Movie"><span class="heart"></span>{{admin.RatingData}} </li>
+      <li class="list-group-item"><span class="heart"></span> 52% Zindagi</li>
+      <li class="list-group-item"><span class="heart"></span> 40% Zindagi</li>
+      <li class="list-group-item"><span class="heart"></span> 30% Zindagi</li>
+      <li class="list-group-item"><span class="heart"></span> 29% Zindagi</li> -->
+    </ul>
+
+
+  </div>
+
+</div>
+
+<div class="col-md-9">
+
+
+  <iframe width="100%" height="445" src="{{ratemovieCtrl.YoutubeUrl}}">
+</iframe>
+</div>
+
+<div class="col-md-3">
+  <br>
+  <div class="jumbotron"style="width:350px;background-color:dimgrey;color:white;padding:0;">
+    <center><p>A C T O R S</p>
+    <div class="horiLine"></div></center><br>
+    <ul class="list-group">
+    <li class="list-group-item"style="background-color:grey;color:white;min-height:60px;font-size:17px;">{{ratemovieCtrl.movie.Actors}}</li>
+    <!-- </ul> -->
+    <br>
+    <center><p>D I R E C T O R S</p>
+    <div class="horiLine"></div></center><br>
+    <ul class="list-group">
+    <li class="list-group-item"style="background-color:grey;color:white;min-height:60px;font-size:17px;">{{ratemovieCtrl.movie.Directors}}</li>
+    <!-- </ul> -->
+    <br>
+    <center><p>W R I T E R</p>
+    <div class="horiLine"></div></center><br>
+    <ul class="list-group">
+    <li class="list-group-item"style="background-color:grey;color:white;min-height:60px;font-size:17px;">{{ratemovieCtrl.MovieData.writer}}</li>
+
+  </div>
+
+</div>
+
+<div class="col-md-9">
+
+  <div class="jumbotron"style="background-color:grey;color:white;">
+    <p>{{ratemovieCtrl.MovieData.plot}}</p>
+
+  </div>
+
+</div>
+
+
+<div class="col-md-3">
+  <div ng-show="true"class="jumbotron"style="background-color:dar;padding:20px;margin-top:-20px;border-radius:15%;border:solid 4px white;">
+
+   <p style="font-family:Blippo, fantasy;margin-left:7%;color:white;font-size:20px;">
+     <span class="glyphicon glyphicon-star"style="color:gold;font-size:38px;float:left"></span>
+     <span class="mymoviestyling"style="color:dimgrey;margin-top:80px;font-size:28px;text-decoration:none;font-family:sans-serif;font-weight:normal">{{ratemovieCtrl.CurRate}}%</span>
+     <!-- <button ng-click="ratemovieCtrl.Rate=true" type="button"class="btn btn-danger"style="margin-left:50px;height:60px;" name="button">R A T E&nbsp M O V I E</button> -->
+     <div ng-show="true"class="rato"style="margin-left:0px;float:left;">
+
+     </div><br><br>
+    <center> <button ng-show="true" type="button"class="btn btn-success"id="SubmitRatingButton" name="button">S U B M I T</button></center>
+
+    </p>
+  </div>
+</div>
+
+
+
+</div>
+
+
+<br><br><br><br><br><br><br>
+
 <script>
   $(document).ready(function () {
     $('.rato').rateYo({
