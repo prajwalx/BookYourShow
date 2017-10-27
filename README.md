@@ -2,6 +2,8 @@
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.7.6.
 
+### Youtube WalkThrough
+This project's youtube walkthrough is [here](https://youtu.be/LgI-PpU-uDg)
 ## Getting Started
 
 ### Prerequisites
